@@ -1,0 +1,12 @@
+#wrapper {
+	padding-top: 30px;
+	background-image: url('/img/bg.jpg');
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+footer {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #34495e;
+	color: #fff;
+}
