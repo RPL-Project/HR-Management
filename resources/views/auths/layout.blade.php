@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		HI {{Auth::user()->name}}
-		<a href="{{ route('auth.logout') }}" title="Logout">Logout</a>
+		<a href="{{ route('auths.logout') }}" title="Logout">Logout</a>
 		<hr>
 	</body>
 

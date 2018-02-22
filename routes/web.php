@@ -16,14 +16,14 @@ Route::get('/', function () {
 });
 
 //Auth
-Route::get('/auth/register','AuthController@getRegister')->name('auth.register')->middleware('guest');
-Route::post('/auth/register','AuthController@postRegister')->middleware('guest');
+Route::get('/auths/register','AuthController@getRegister')->name('auths.register')->middleware('guest');
+Route::post('/auths/register','AuthController@postRegister')->middleware('guest');
 
-Route::get('/auth/login','AuthController@getLogin')->middleware('guest')->name('auth.login');
-Route::post('/auth/login','AuthController@postLogin')->middleware('guest');
+Route::get('/auths/login','AuthController@getLogin')->middleware('guest')->name('auths.login');
+Route::post('/auths/login','AuthController@postLogin')->middleware('guest');
 
-Route::get('/auth/layout', function () {
-    return view('/auth/layout');
-})->middleware('auth')->name('auth.layout');
+Route::get('/auths/layout', function () {
+    return view('/auths/layout');
+})->middleware('auth')->name('auths.layout');
 
-Route::get('/auth/logout','AuthController@logout')->middleware('auth')->name('auth.logout');
+Route::get('/auths/logout','AuthController@logout')->middleware('auth')->name('auths.logout');

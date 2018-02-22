@@ -9,7 +9,7 @@ class AuthController extends Controller
 {
     public function getRegister()
 	{
-		return view('/auth/register');
+		return view('/auths/register');
 	}
 	
     public function postRegister(Request $request)
@@ -25,12 +25,12 @@ class AuthController extends Controller
 			'email' => $request->email,
 			'password' => bcrypt($request->password)
 		]);
-		return redirect()->route('auth.login');
+		return redirect()->route('auths.login');
 	}
 
 	public function getLogin()
 	{	
-		return view('/auth/login');
+		return view('/auths/login');
 	}
 
 	public function postLogin(Request $request )
@@ -40,14 +40,14 @@ class AuthController extends Controller
 			return redirect()->back();
 		}
 		
-		return redirect()->route('auth.layout');
+		return redirect()->route('auths.layout');
 	}
 
 	public function logout()
 	{
 		auth()->logout();
 		
-		return redirect()->route('auth.login');
+		return redirect()->route('auths.login');
 	}
 
 }

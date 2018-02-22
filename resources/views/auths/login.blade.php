@@ -90,7 +90,7 @@
 
   <body>
 	<img src="img/signup.jpg" alt="gambar" class="control-background"/>
-      <form method="POST" action="{{route('auth.login')}}">
+      <form method="POST" action="{{route('auths.login')}}">
 	  {{csrf_field()}}
 		<div class="sidenav">
 			<fieldset>
