@@ -22,13 +22,21 @@
       </ul>
       <div class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          User
+        @if(Auth::check())
+          {{Auth::user()->name}}
+        @else
+          Guest
+        @endif
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">        
           @if(Auth::check())
-            <a class="dropdown-item" href="#">{{Auth::user()->name}}</a>
             <a class="dropdown-item" href="#">Edit Profile</a>
-            <a class="dropdown-item" href="{{ route('auth.logout') }}" title="Logout">Logout</a>
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fa fa-sign-out"></i> Logout
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
           @else
             <a class="dropdown-item" href="{{route('login')}}">Login</a>
             <a class="dropdown-item" href="{{route('register')}}">Register</a>

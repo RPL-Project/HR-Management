@@ -6,9 +6,11 @@
 				<h2 class="text-center"><strong>Division Management</strong></h2>
 				<hr>
 			<div class="row">
-				<div class="col-2">
-					<a class="btn btn-primary btn-block" href="{{ route('division.create')}}"><i class="fas fa-plus-square"></i> Add New</a>	
-				</div>
+				@auth('web')
+					<div class="col-2">
+						<a class="btn btn-primary btn-block" href="{{ route('division.create')}}"><i class="fas fa-plus-square"></i> Add New</a>	
+					</div>
+				@endauth
 				<div class="col">
 					<form action="">					
 						<div class="form-row">						
@@ -28,7 +30,9 @@
 			      <th scope="col">No.</th>
 			      <th scope="col">Division Name</th>
 			      <th scope="col">Description</th>
-			      <th scope="col">Action</th>
+			      @auth('web')
+			      	<th scope="col">Action</th>
+			      @endauth
 			    </tr>
 			  </thead>
 			  <tbody>
@@ -37,23 +41,25 @@
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $division->division_status }}</td>
 			      <td>{{ $division->division_description }}</td>
-			      <td>
-			      	<div class="row">
-			      		<div class="form-inline">
-				      		<div class="form-group mb-2">
-				      			{!! Form::open(['route' => ['division.edit', $division->id], 'method' => 'GET']) !!}
-				      				{{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
-				      			{!! Form::close() !!}	
-				      		</div>
-				      		&nbsp; | &nbsp;
-				      		<div class="form-group mb-2">
-				      			{!! Form::open(['route' => ['division.destroy', $division->id], 'method' => 'DELETE']) !!}
-						      		{{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
-						      	{!! Form::close() !!}	
-				      		</div>	
+			      @auth('web')
+				      <td>
+				      	<div class="row">
+				      		<div class="form-inline">
+					      		<div class="form-group mb-2">
+					      			{!! Form::open(['route' => ['division.edit', $division->id], 'method' => 'GET']) !!}
+					      				{{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
+					      			{!! Form::close() !!}	
+					      		</div>
+					      		&nbsp; | &nbsp;
+					      		<div class="form-group mb-2">
+					      			{!! Form::open(['route' => ['division.destroy', $division->id], 'method' => 'DELETE']) !!}
+							      		{{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+							      	{!! Form::close() !!}	
+					      		</div>	
+					      	</div>
 				      	</div>
-			      	</div>
-			      </td>
+				      </td>
+			      @endauth
 			    </tr>
 			   @endforeach			    
 			  </tbody>

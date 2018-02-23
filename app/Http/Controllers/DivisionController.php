@@ -7,6 +7,10 @@ use App\Division;
 
 class DivisionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('web')->except('index');
+    }
     /**
      * Display a listing of the resource.
      *
