@@ -1,12 +1,25 @@
-#wrapper {
-	padding-top: 30px;
+body {	
 	background-image: url('/img/bg.jpg');
 	-webkit-background-size: cover;
 	background-size: cover;
 }
+#wrapper {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
 footer {
 	padding-top: 20px;
-	padding-bottom: 20px;
 	background-color: #34495e;
 	color: #fff;
+}
+.EM{
+	width: 300px;
+}
+.copy {
+	padding: 20px;
+	background-color: #c0392b;
+}
+hr {
+	border: none;
+	border-bottom: 2px solid #fff;
 }

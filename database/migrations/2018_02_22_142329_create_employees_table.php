@@ -15,9 +15,12 @@ class CreateEmployeesTable extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('employee_id')->unique();
             $table->string('employee_name');
             $table->integer('division_id')->unsigned();
             $table->integer('grade_id')->unsigned();
+            $table->string('gender');
+            $table->string('avatar');
             $table->timestamps();
 
             $table->foreign('division_id')->references('id')->on('divisions')->onDelete('cascade');

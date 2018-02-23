@@ -14,3 +14,9 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('dashboard');
+
+Route::resource('/employee', 'EmployeeController');
+
+Route::resource('/division', 'DivisionController');
+
+Route::resource('/grade', 'GradeController');
