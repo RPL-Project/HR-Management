@@ -35,32 +35,13 @@
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr class="table-light">
-			      <th scope="row">1</th>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			    </tr>
-			    <tr class="table-light">
-			      <th scope="row">2</th>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			    </tr>
-			    <tr class="table-light">
-			      <th scope="row">3</th>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
+			    <tr>
+			      <td></td>
+			      <td></td>
+			      <td></td>
+			      <td></td>
+			      <td></td>
+			      <td></td>	
 			    </tr>
 			  </tbody>
 			</table>

@@ -5,14 +5,14 @@
 		<div class="col-6 offset-3">
 			<div class="card">
 				<div class="card-body">
-					{!! Form::open(['route' => 'grade.store', 'method' => 'POST']) !!}
+					{!! Form::open(['route' => ['grade.update', $grade->id], 'method' => 'PUT']) !!}
 						<div class="form-group">
-							{{ Form::label('grade', 'Grade Name') }}
-							{{ Form::text('grade', '', ['class' => 'form-control', 'placeholder' => 'Grade Name'])}}
+							{{ Form::label('grade', 'Division Name') }}
+							{{ Form::text('grade', $grade->grade_status, ['class' => 'form-control', 'placeholder' => 'Division Name'])}}
 						</div>
 						<div class="form-group">
 							{{ Form::label('description', 'Description') }}
-							{{ Form::textarea('description', '', ['class' => 'form-control', 'placeholder' => 'Description'])}}
+							{{ Form::textarea('description', $grade->grade_description, ['class' => 'form-control', 'placeholder' => 'Description'])}}
 						</div>
 						<div class="form-group">
 							<div class="row">
@@ -20,8 +20,7 @@
 									<a onclick="history.go(-1)" class="btn btn-primary">Back</a>
 								</div>
 								<div class="col-4 offset-6 text-right">
-									{{ Form::submit('Add', ['class' => 'btn btn-primary']) }}
-									{{ Form::reset('Reset', ['class' => 'btn btn-danger']) }}	
+									{{ Form::submit('Save Changes', ['class' => 'btn btn-success']) }}
 								</div>
 							</div>					
 						</div>

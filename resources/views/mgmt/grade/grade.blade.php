@@ -6,9 +6,11 @@
 				<h2 class="text-center"><strong>Grade Management</strong></h2>
 				<hr>
 			<div class="row">
-				<div class="col-2">
-					<a class="btn btn-primary btn-block" href="{{ route('grade.create')}}"><i class="fas fa-plus-square"></i> Add New</a>	
-				</div>
+				@auth('web')
+					<div class="col-2">
+						<a class="btn btn-primary btn-block" href="{{ route('grade.create')}}"><i class="fas fa-plus-square"></i> Add New</a>	
+					</div>
+				@endauth
 				<div class="col">
 					<form action="">					
 						<div class="form-row">						
@@ -22,30 +24,44 @@
 					</form>						
 				</div>
 			</div>	
-			<table class="table" style="margin-top: 25px;">
+			<table class="table text-center" style="margin-top: 25px;">
 			  <thead class="thead-dark">
 			    <tr class="table-light">
 			      <th scope="col">No.</th>
 			      <th scope="col">Grade Name</th>
 			      <th scope="col">Description</th>
+			      @auth('web')
+			      	<th scope="col">Action</th>
+			      @endauth
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr class="table-light">
-			      <th scope="row">1</th>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
+			  @foreach ($grade  as $index => $grade)
+			    <tr class="table-light">			      
+			      <th scope="row">{{ $index+1 }}</th>
+			      <td>{{ $grade->grade_status }}</td>
+			      <td>{{ $grade->grade_description }}</td>
+			      @auth('web')
+				      <td>
+				      	<div class="row">
+				      		<div class="form-inline">
+					      		<div class="form-group mb-2">
+					      			{!! Form::open(['route' => ['grade.edit', $grade->id], 'method' => 'GET']) !!}
+					      				{{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
+					      			{!! Form::close() !!}	
+					      		</div>
+					      		&nbsp; | &nbsp;
+					      		<div class="form-group mb-2">
+					      			{!! Form::open(['route' => ['grade.destroy', $grade->id], 'method' => 'DELETE']) !!}
+							      		{{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+							      	{!! Form::close() !!}	
+					      		</div>	
+					      	</div>
+				      	</div>
+				      </td>
+			      @endauth
 			    </tr>
-			    <tr class="table-light">
-			      <th scope="row">2</th>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			    </tr>
-			    <tr class="table-light">
-			      <th scope="row">3</th>
-			      <td>&nbsp;</td>
-			      <td>&nbsp;</td>
-			    </tr>
+			   @endforeach			    
 			  </tbody>
 			</table>
 		</div>

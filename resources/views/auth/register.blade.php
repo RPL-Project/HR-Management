@@ -12,14 +12,46 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label for="employee_id" class="col-md-4 col-form-label text-md-right">Employee id</label>
+
+                            <div class="col-md-6">
+                                <input id="employee_id" type="text" class="form-control{{ $errors->has('employee_id') ? ' is-invalid' : '' }}" name="employee_id" value="{{ old('employee_id') }}" required autofocus>
+
+                                @if ($errors->has('employee_id'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('employee_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required>
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
+
+                            <div class="col-md-6">
+                                <select id="gender" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender" value="{{ old('gender') }}" required>
+                                    <option>Select Option</option>
+                                    <option>Men</option>
+                                    <option>Women</option>
+                                </select>
+
+                                @if ($errors->has('gender'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('gender') }}</strong>
                                     </span>
                                 @endif
                             </div>
