@@ -29,20 +29,45 @@
 			      <th scope="col">Employee ID</th>
 			      <th scope="col">Full Name</th>
 			      <th scope="col">Gender</th>
+			      <th scope="col">Email</th>
 			      <th scope="col">Division</th>
 			      <th scope="col">Grade</th>
+			      @auth('web')
 			      <th scope="col">Action</th>
+			      @endauth
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr>
-			      <td></td>
-			      <td></td>
-			      <td></td>
-			      <td></td>
-			      <td></td>
-			      <td></td>	
+			     @foreach ($user  as $index => $user)
+			    <tr class="table-light">			      
+			      <th scope="row">{{ $index+1 }}</th>
+			      <td>{{ $user->employee_id }}</td>
+			      <td>{{ $user->name }}</td>
+			      <td>{{ $user->gender }}</td>
+			      <td>{{ $user->email }}</td>
+			      <td>{{ $user->division_id }}</td>
+			      <td>{{ $user->grade_id }}</td>
+			      @auth('web')
+				      <td>
+				      	<div class="row">
+				      		<div class="form-inline">
+					      		<div class="form-group mb-2">
+					      			{!! Form::open(['route' => ['employee.edit', $user->id], 'method' => 'GET']) !!}
+					      				{{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
+					      			{!! Form::close() !!}	
+					      		</div>
+					      		&nbsp; | &nbsp;
+					      		<div class="form-group mb-2">
+					      			{!! Form::open(['route' => ['employee.destroy', $user->id], 'method' => 'DELETE']) !!}
+							      		{{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
+							      	{!! Form::close() !!}	
+					      		</div>	
+					      	</div>
+				      	</div>
+				      </td>
+			      @endauth
 			    </tr>
+			   @endforeach		
 			  </tbody>
 			</table>
 		</div>

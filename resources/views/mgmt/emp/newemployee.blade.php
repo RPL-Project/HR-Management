@@ -7,6 +7,10 @@
 				<div class="card-body">
 					{!! Form::open(['route' => 'employee.store', 'method' => 'POST']) !!}
 						<div class="form-group">
+							{{ Form::label('employee_id', 'Employee Id') }}
+							{{ Form::text('employee_id', '', ['class' => 'form-control', 'placeholder' => 'Employee Id'])}}
+						</div>
+						<div class="form-group">
 							{{ Form::label('name', 'Employee Name') }}
 							{{ Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Employee Name'])}}
 						</div>
@@ -15,12 +19,16 @@
 							{{ Form::select('gender', ['M' => 'Man', 'W' => 'Woman'], null, ['placeholder' => 'Select Gender', 'class' => 'custom-select'])}}
 						</div>
 						<div class="form-group">
-							{{ Form::label('division', 'Employee Division`') }}
-							{{ Form::select('division', ['M' => 'Man', 'W' => 'Woman'], null, ['placeholder' => 'Select Division', 'class' => 'custom-select'])}}
+							{{ Form::label('email', 'Employee Email') }}
+							{{ Form::email('email', '', ['class' => 'form-control', 'placeholder' => 'Employee Email'])}}
 						</div>
 						<div class="form-group">
-							{{ Form::label('grade', 'Employee Grade') }}
-							{{ Form::select('grade', ['M' => 'Man', 'W' => 'Woman'], null, ['placeholder' => 'Select Grade', 'class' => 'custom-select'])}}
+							{{ Form::label('division_id', 'Employee Division`') }}
+							{{ Form::select('division_id', ['S1' => 'Sample1', 'S2' => 'Sample2'], null, ['placeholder' => 'Select Division', 'class' => 'custom-select'])}}
+						</div>
+						<div class="form-group">
+							{{ Form::label('grade_id', 'Employee Grade') }}
+							{{ Form::select('grade_id', ['S1' => 'Sample1', 'S2' => 'Sample2'], null, ['placeholder' => 'Select Grade', 'class' => 'custom-select'])}}
 						</div>
 						<div class="form-group">
 							<div class="row">

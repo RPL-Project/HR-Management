@@ -18,8 +18,8 @@ class ProfileController extends Controller
      */
      public function index()
     {
-        $user = User::all();
-        return view('profile.profile')->withUser($user);
+        $users = User::all();
+        return view('profile.profile')->withUsers($users);
     }
     /**
      * Display the specified resource.

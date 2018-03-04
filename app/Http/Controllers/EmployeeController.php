@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class EmployeeController extends Controller
 {
@@ -13,7 +14,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('mgmt.emp.employee');
+        $user = User::all();
+        return view('mgmt.emp.employee')->withUser($user);
     }
 
     /**
@@ -34,7 +36,26 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'employee_id' => 'required',
+            'name' => 'required',
+            'gender' => 'required',
+            'email' => 'required',
+            //'divisin_id' => 'required',
+            //'grade_id' => 'required'
+            ]);
+
+        $user = new User;
+        $user->employee_id = $request->employee_id;
+        $user->name = $request->name;
+        $user->gender = $request->gender;
+        $user->email = $request->email;
+        //$user->division_id = $request->division_id;
+        //$user->grade_id = $request->grade_id;
+
+        $user->save();
+
+        return redirect()->route('employee.index');
     }
 
     /**
@@ -79,6 +100,9 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user ->delete();
+
+        return redirect()->back();
     }
 }

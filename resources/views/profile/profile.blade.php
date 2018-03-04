@@ -2,23 +2,36 @@
 
 @section('content')
 	<div id="wrapper">
-			<div class="container">
-				<h2 class="text-center"><strong>Profile</strong></h2>
-				<hr>
-
-				<div class="form-group">
-				@foreach ($user as $index => $user)
-					{{$user->name}}
-					<br>
-					{{$user->email}}
-					<br>
-					{!! Form::open(['route' => ['profile.edit', $user->id], 'method' => 'GET']) !!}
-					{{csrf_field()}}
-					{{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
-					{!! Form::close() !!}
-					<hr>
-				@endforeach
-				</div>
-			</div>
+		<div class="container">
+			<h2 class="text-center"><strong>Profile</strong></h2>
+			<hr>
+			<div class="row">
+			@if (count($users) > 0)				
+				@foreach ($users as $count => $user)
+					@if ($count % 3 == 0)
+						</div><div class="row">				
+					@endif
+					<div class="col-4" style="margin-bottom: 20px;">
+						<div class="card" style="width: 18rem;">
+							<!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+							<div class="card-body">
+								<h5 class="card-title">{{$user->name}}</h5>
+							    <p class="card-text" >
+							    	{{$user->gender}}<br>
+							    	{{$user->email}}				    	
+							    </p>
+							    {!! Form::open(['route' => ['profile.edit', $user->id], 'method' => 'GET']) !!}
+								{{csrf_field()}}
+								{{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
+								{!! Form::close() !!}
+							</div>
+						</div>			
+					</div>					
+				@endforeach				
+			</div>			
+			@else
+				<div>Tidak ada user</div>
+			@endif
+		</div>
 	</div>
 @endsection
