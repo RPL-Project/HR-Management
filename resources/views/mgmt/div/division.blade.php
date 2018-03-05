@@ -19,8 +19,7 @@
 							</div>
 							<div class="col">
 								<button class="btn btn-primary btn-block"><i class="fas fa-search"></i></button>
-							</div>																	
-						</div>
+x						</div>
 					</form>						
 				</div>
 			</div>	

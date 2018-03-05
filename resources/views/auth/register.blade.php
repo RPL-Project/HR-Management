@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                        {{csrf_field()}}
 
                         <div class="form-group row">
                             <label for="employee_id" class="col-md-4 col-form-label text-md-right">Employee id</label>
@@ -43,10 +43,9 @@
                             <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
 
                             <div class="col-md-6">
-                                <select id="gender" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender" value="{{ old('gender') }}" required>
-                                    <option>Select Option</option>
-                                    <option>Men</option>
-                                    <option>Women</option>
+                                <select id="gender" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender" value="{{ old('gender') }}" placeholder="Select gender" required>
+                                    <option>Man</option>
+                                    <option>Woman</option>
                                 </select>
 
                                 @if ($errors->has('gender'))

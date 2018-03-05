@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use App\user;
+use Auth;
 
 class ProfileController extends Controller
 {
@@ -38,9 +39,9 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $user = User::find($id);
+        $user = User::find(Auth::user()->id);
         return view('profile.updateprofile')->withUser($user);
     }
 
@@ -54,12 +55,16 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'employee_id' => 'required',
             'name' => 'required',
+            'gender' => 'required',
             'email' => 'required'
             ]);
 
         $user = User::find($id);
+        $user->employee_id = $request->employee_id;
         $user->name = $request->name;
+        $user->gender = $request->gender;
         $user->email = $request->email;
         $user->save();
 
