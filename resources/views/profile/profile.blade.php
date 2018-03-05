@@ -4,19 +4,38 @@
 	<div id="wrapper">
 		<div class="container">
 			<h2 class="text-center"><strong>Profile</strong></h2>
-			<hr>
+				<hr>
+				{!! Form::open(['route' => ['profile.edit', Auth::user()->id], 'method' => 'GET']) !!}
+				{{csrf_field()}}
+				{{ Form::submit('Edit Profile', ['class' => 'btn btn-success']) }}
+				{!! Form::close() !!}
+				<br>
+
 			<div class="row">
 					<div class="col-4" style="margin-bottom: 20px;">
 						<div class="card" style="width: 18rem;">
 							<div class="card-body">
-								Employee id : {{Auth::user()->employee_id}}<br>
-								Name        : {{Auth::user()->name}}<br>
-								Email       : {{Auth::user()->email}}<br>
-								Gender      : {{Auth::user()->gender}}<br>
-								{!! Form::open(['route' => ['profile.edit', Auth::user()->id], 'method' => 'GET']) !!}
-								{{csrf_field()}}
-								{{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
-								{!! Form::close() !!}
+								<img src="img/avatar.png" class="profile" />
+							</div>
+						</div>
+					</div>
+					<div class="col-4" style="margin-bottom: 20px;">
+						<div class="card" style="width: 25rem;">
+							<div class="card-body">
+								<table>
+									<tr>
+										<td class="td">Employee id</td><td>{{Auth::user()->employee_id}}</td>
+									</tr>
+									<tr>
+										<td class="td">Name	    </td><td>{{Auth::user()->name}}</td>
+									</tr>
+									<tr>	
+										<td class="td">Email       </td><td>{{Auth::user()->email}}</td>
+									</tr>
+									<tr>	
+										<td class="td">Gender      </td><td>{{Auth::user()->gender}}</td>
+									</tr>	
+								</table>
 							</div>
 						</div>
 					</div>
