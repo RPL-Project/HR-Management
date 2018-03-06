@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Division;
+use App\Grade;
 
 class EmployeeController extends Controller
 {
@@ -25,7 +27,10 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('mgmt.emp.newemployee');
+        $divisions = Division::all();
+        $grades = Grade::all();
+
+        return view('mgmt.emp.newemployee',compact('divisions','grades'));
     }
 
     /**

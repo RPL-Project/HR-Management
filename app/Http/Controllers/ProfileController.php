@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 Use App\user;
+use App\Division;
+use App\Grade;
 use Auth;
 
 class ProfileController extends Controller
@@ -19,6 +21,9 @@ class ProfileController extends Controller
      */
      public function index()
     {
+        $divisions = Division::all();
+        $grades = Grade::all();
+
         $users = User::all();
         return view('profile.profile')->withUsers($users);
     }
@@ -41,8 +46,11 @@ class ProfileController extends Controller
      */
     public function edit()
     {
+        $divisions = Division::all();
+        $grades = Grade::all();
+        
         $user = User::find(Auth::user()->id);
-        return view('profile.updateprofile')->withUser($user);
+        return view('profile.updateprofile', compact('divisions','grades'))->withUser($user);
     }
 
     /**
@@ -52,20 +60,24 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $this->validate($request, [
-            'employee_id' => 'required',
-            'name' => 'required',
-            'gender' => 'required',
-            'email' => 'required'
+            'employee_id' => 'required|string|max:8|min:8',
+            'name' => 'required|string',
+            'gender' => 'required|string',
+            'email' => 'required|string|email',
+            'division_id' => 'required',
+            'grade_id' => 'required'
             ]);
 
-        $user = User::find($id);
+        $user = User::find(Auth::user()->id);
         $user->employee_id = $request->employee_id;
         $user->name = $request->name;
         $user->gender = $request->gender;
         $user->email = $request->email;
+        $user->division_id = $request->division_id;
+        $user->grade_id = $request->grade_id;
         $user->save();
 
         return redirect()->route('profile.index');

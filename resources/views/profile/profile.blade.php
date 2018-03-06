@@ -5,10 +5,12 @@
 		<div class="container">
 			<h2 class="text-center"><strong>Profile</strong></h2>
 				<hr>
-				{!! Form::open(['route' => ['profile.edit', Auth::user()->id], 'method' => 'GET']) !!}
-				{{csrf_field()}}
-				{{ Form::submit('Edit Profile', ['class' => 'btn btn-success']) }}
-				{!! Form::close() !!}
+				<div>
+					{!! Form::open(['route' => ['profile.edit', Auth::user()->id], 'method' => 'GET']) !!}
+					{{csrf_field()}}
+					{{ Form::submit('Edit Profile', ['class' => 'btn btn-success']) }}
+					{!! Form::close() !!}
+				</div>
 				<br>
 
 			<div class="row">
@@ -24,17 +26,23 @@
 							<div class="card-body">
 								<table>
 									<tr>
-										<td class="td">Employee id</td><td>{{Auth::user()->employee_id}}</td>
+										<td class="td">Employee id</td><td>: {{Auth::user()->employee_id}}</td>
 									</tr>
 									<tr>
-										<td class="td">Name	    </td><td>{{Auth::user()->name}}</td>
+										<td class="td">Name</td><td>: {{Auth::user()->name}}</td>
 									</tr>
 									<tr>	
-										<td class="td">Email       </td><td>{{Auth::user()->email}}</td>
+										<td class="td">Gender</td><td>: {{Auth::user()->gender}}</td>
 									</tr>
 									<tr>	
-										<td class="td">Gender      </td><td>{{Auth::user()->gender}}</td>
-									</tr>	
+										<td class="td">Email</td><td>: {{Auth::user()->email}}</td>
+									</tr>
+									<tr>	
+										<td class="td">Division</td><td>: {{Auth::user()->division_id}}</td>
+									</tr>
+									<tr>	
+										<td class="td">Grade</td><td>: {{Auth::user()->grade_id}}</td>
+									</tr>
 								</table>
 							</div>
 						</div>

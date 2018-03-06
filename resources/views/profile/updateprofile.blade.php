@@ -68,6 +68,38 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Division</label>
+                            <div class="col-md-6">
+                                <select name="division_id" class="form-control{{ $errors->has('division_id') ? ' is-invalid' : '' }}">
+                                @foreach ($divisions as $division)
+                                    <option value="{{ $division->id }}" > {{ $division->division_status}} </option>
+                                @endforeach
+                                </select>
+                                @if ($errors->has('division_id'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('division_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Grade</label>
+                            <div class="col-md-6">
+                                <select name="grade_id" class="form-control{{ $errors->has('grade_id') ? ' is-invalid' : '' }}">
+                                @foreach ($grades as $grade)
+                                    <option value="{{ $grade->id }}" > {{ $grade->grade_status}} </option>
+                                @endforeach
+                                </select>
+                                @if ($errors->has('grade_id'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('grade_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
