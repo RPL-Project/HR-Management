@@ -48,7 +48,7 @@ class ProfileController extends Controller
     {
         $divisions = Division::all();
         $grades = Grade::all();
-
+        
         $user = User::find(Auth::user()->id);
         return view('profile.updateprofile', compact('divisions','grades'))->withUser($user);
     }
