@@ -23,12 +23,20 @@
 							{{ Form::email('email', '', ['class' => 'form-control', 'placeholder' => 'Employee Email'])}}
 						</div>
 						<div class="form-group">
-							{{ Form::label('division_id', 'Employee Division`') }}
-							{{ Form::select('division_id', ['S1' => 'Sample1', 'S2' => 'Sample2'], null, ['placeholder' => 'Select Division', 'class' => 'custom-select'])}}
+							<label>Division</label>
+							<select name="division_id" class="form-control">
+							@foreach ($divisions as $division)
+								<option value="{{ $division->id }}" > {{ $division->division_status}} </option>
+							@endforeach
+							</select>
 						</div>
 						<div class="form-group">
-							{{ Form::label('grade_id', 'Employee Grade') }}
-							{{ Form::select('grade_id', ['S1' => 'Sample1', 'S2' => 'Sample2'], null, ['placeholder' => 'Select Grade', 'class' => 'custom-select'])}}
+							<label>Grade</label>
+							<select name="grade_id" class="form-control">
+							@foreach ($grades as $grade)
+								<option value="{{ $grade->id }}" > {{ $grade->grade_status}} </option>
+							@endforeach
+							</select>
 						</div>
 						<div class="form-group">
 							<div class="row">

@@ -30,7 +30,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">        
           @if(Auth::check())
-            <a class="dropdown-item" href="{{ route('profile.index') }}">Edit Profile</a>
+            <a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a>
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fa fa-sign-out"></i> Logout
             </a>

@@ -1,5 +1,4 @@
 body {	
-	
 	-webkit-background-size: cover;
 	background-size: cover;
 }
@@ -22,4 +21,14 @@ footer {
 hr {
 	border: none;
 	border-bottom: 2px solid #fff;
+}
+.profile{
+	width: 248px;
+	height: 248px;
+}
+.td{
+	width:120px;
+	height: 30px;
+	font-weight: bold;
+	font-size: 15px;
 }
