@@ -67,13 +67,12 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">Division</label>
                             <div class="col-md-6">
                                 <select name="division_id" class="form-control{{ $errors->has('division_id') ? ' is-invalid' : '' }}">
                                 @foreach ($divisions as $division)
-                                    <option value="{{ $division->id }}" > {{ $division->division_status}} </option>
+                                    <option value="{{ $division->id }}" >{{ $division->division_status}} </option>
                                 @endforeach
                                 </select>
                                 @if ($errors->has('division_id'))
@@ -100,11 +99,10 @@
                             </div>
                         </div>
 
-
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-									<a onclick="history.go(-1)" class="btn btn-primary">Back</a>
-                                <button type="submit" class="btn btn-primary">
+									<a onclick="history.go(-1)" class="btn btn-primary" style="color:#fff;">Back</a>
+                                <button type="submit" class="btn btn-success">
                                     Save
                                 </button>
                             </div>
