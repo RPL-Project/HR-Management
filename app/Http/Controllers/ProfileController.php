@@ -23,6 +23,7 @@ class ProfileController extends Controller
     {
         $divisions = Division::all();
         $grades = Grade::all();
+
         $users = User::all();
 
         return view('profile.profile')->withUsers($users);
@@ -46,8 +47,7 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-
-        $divisions = Division::all();
+		$divisions = Division::all();
         $grades = Grade::all();
         $user = User::find(Auth::user()->id);
 
@@ -61,7 +61,7 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $this->validate($request, [
             'employee_id' => 'required|string|max:8|min:8',
@@ -72,7 +72,7 @@ class ProfileController extends Controller
             'grade_id' => 'required'
             ]);
 
-        $user = User::find($id);
+        $user = User::find(Auth::user()->id);
         $user->employee_id = $request->employee_id;
         $user->name = $request->name;
         $user->gender = $request->gender;

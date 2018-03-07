@@ -84,7 +84,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">Grade</label>
+                            <label for="grade" class="col-md-4 col-form-label text-md-right">Grade</label>
                             <div class="col-md-6">
                                 <select name="grade_id" class="form-control{{ $errors->has('grade_id') ? ' is-invalid' : '' }}">
                                 @foreach ($grades as $grade)

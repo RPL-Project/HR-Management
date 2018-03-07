@@ -5,7 +5,6 @@
 		<div class="container">
 			<h2 class="text-center"><strong>Profile</strong></h2>
 				<hr>
-				
 				<br>
 
 			<div class="row">
@@ -21,7 +20,7 @@
 							<div class="card-body">
 								<table>
 									<tr>
-										<td class="td">Employee id</td><td>{{Auth::user()->employee_id}}</td>
+										<td class="td">Employee id</td><td>: {{Auth::user()->employee_id}}</td>
 									</tr>
 									<tr>
 										<td class="td">Name</td><td>{{Auth::user()->name}}</td>
