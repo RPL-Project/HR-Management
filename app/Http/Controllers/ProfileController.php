@@ -21,12 +21,14 @@ class ProfileController extends Controller
      */
      public function index()
     {
-        $divisions = Division::all();
-        $grades = Grade::all();
+        $users = User::find(Auth::user()->id)
+            ->select('division_status', 'grade_status')
+            ->join('divisions', 'users.division_id', '=', 'divisions.id')
+            ->join('grades', 'users.grade_id', '=', 'grades.id')
+            ->where('users.id','=',Auth::user()->id)
+            ->get();
 
-        $users = User::all();
-
-        return view('profile.profile')->withUsers($users);
+        return view('profile.profile',compact('users'))->withUser($users);
     }
     /**
      * Display the specified resource.
@@ -67,7 +69,7 @@ class ProfileController extends Controller
             'employee_id' => 'required|string|max:8|min:8',
             'name' => 'required|string',
             'gender' => 'required|string',
-            'email' => 'required|string|email|unique:users',
+            'email' => 'required|string|email',
             'division_id' => 'required',
             'grade_id' => 'required'
             ]);

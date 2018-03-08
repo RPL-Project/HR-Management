@@ -5,15 +5,13 @@
 		<div class="col-6 offset-3">
 			<div class="card">
 				<div class="card-body">
-					<form method="POST" action="{{ route('profile.update', $user->id) }}">
-                        {{csrf_field()}}
-                        {{method_field('PATCH') }}
-
-                        <div class="form-group row">
+					<form action="{{route('employee.store')}}" method="POST">
+					{{csrf_field()}}
+						 <div class="form-group row">
                             <label for="employee_id" class="col-md-4 col-form-label text-md-right">Employee id</label>
 
                             <div class="col-md-6">
-                                <input id="employee_id" type="text" class="form-control{{ $errors->has('employee_id') ? ' is-invalid' : '' }}" name="employee_id" value="{{Auth::user()->employee_id}}" required autofocus>
+                                <input id="employee_id" type="text" class="form-control{{ $errors->has('employee_id') ? ' is-invalid' : '' }}" name="employee_id" value="{{old('employee_id')}}" placeholder="Employee id" required autofocus>
 
                                 @if ($errors->has('employee_id'))
                                     <span class="invalid-feedback">
@@ -27,7 +25,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{Auth::user()->name}}" required>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{old('name')}}" placeholder="name" required>
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">
@@ -58,7 +56,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{Auth::user()->email}}" required>
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{old('email')}}" placeholder="email" required>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
@@ -109,22 +107,40 @@
                             </div>
                         </div>
                     </form>
-					<!--{!! Form::open(['route' => ['profile.update', $user->id], 'method' => 'PUT']) !!}
+					</form>
+
+					<!--{!! Form::open(['route' => 'employee.store', 'method' => 'POST']) !!}
 						<div class="form-group">
-							{{ Form::label('employee_id', 'Employe id') }}
-							{{ Form::text('employee_id', $user->employee_id, ['class' => 'form-control', 'placeholder' => 'Employe id'])}}
+							{{ Form::label('employee_id', 'Employee Id') }}
+							{{ Form::text('employee_id', '', ['class' => 'form-control', 'placeholder' => 'Employee Id'])}}
 						</div>
 						<div class="form-group">
-							{{ Form::label('name', 'Name') }}
-							{{ Form::text('name', $user->name, ['class' => 'form-control', 'placeholder' => 'Name'])}}
+							{{ Form::label('name', 'Employee Name') }}
+							{{ Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Employee Name'])}}
 						</div>
 						<div class="form-group">
 							{{ Form::label('gender', 'Employee Gender') }}
-							{{ Form::select('gender', ['Man' => 'Man', 'Woman' => 'Woman'], null, ['placeholder' => 'Select Gender', 'class' => 'custom-select'])}}
+							{{ Form::select('gender', ['M' => 'Man', 'W' => 'Woman'], null, ['placeholder' => 'Select Gender', 'class' => 'custom-select'])}}
 						</div>
 						<div class="form-group">
-							{{ Form::label('email', 'Email') }}
-							{{ Form::text('email', $user->email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
+							{{ Form::label('email', 'Employee Email') }}
+							{{ Form::email('email', '', ['class' => 'form-control', 'placeholder' => 'Employee Email'])}}
+						</div>
+						<div class="form-group">
+							<label>Division</label>
+							<select name="division_id" class="form-control">
+							@foreach ($divisions as $division)
+								<option value="{{ $division->id }}" > {{ $division->division_status}} </option>
+							@endforeach
+							</select>
+						</div>
+						<div class="form-group">
+							<label>Grade</label>
+							<select name="grade_id" class="form-control">
+							@foreach ($grades as $grade)
+								<option value="{{ $grade->id }}" > {{ $grade->grade_status}} </option>
+							@endforeach
+							</select>
 						</div>
 						<div class="form-group">
 							<div class="row">
@@ -132,7 +148,8 @@
 									<a onclick="history.go(-1)" class="btn btn-primary">Back</a>
 								</div>
 								<div class="col-4 offset-6 text-right">
-									{{ Form::submit('Save Changes', ['class' => 'btn btn-success']) }}
+									{{ Form::submit('Add', ['class' => 'btn btn-primary']) }}
+									{{ Form::reset('Reset', ['class' => 'btn btn-danger']) }}	
 								</div>
 							</div>					
 						</div>

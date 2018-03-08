@@ -45,16 +45,17 @@
 			      <td>{{ $user->name }}</td>
 			      <td>{{ $user->gender }}</td>
 			      <td>{{ $user->email }}</td>
-			      <td>{{ $user->division_id }}</td>
-			      <td>{{ $user->grade_id }}</td>
+			      <td>{{ $user->division_status }}</td>
+			      <td>{{ $user->grade_status }}</td>
 			      @auth('web')
 				      <td>
 				      	<div class="row">
 				      		<div class="form-inline">
 					      		<div class="form-group mb-2">
 					      			{!! Form::open(['route' => ['employee.edit', $user->id], 'method' => 'GET']) !!}
-					      				{{ Form::submit('Edit', ['class' => 'btn btn-warning']) }}
-					      			{!! Form::close() !!}	
+									{{csrf_field()}}
+									{{ Form::submit('Edit Profile', ['class' => 'btn btn-success']) }}
+									{!! Form::close() !!}	
 					      		</div>
 					      		&nbsp; | &nbsp;
 					      		<div class="form-group mb-2">

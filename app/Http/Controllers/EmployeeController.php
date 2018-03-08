@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Division;
 use App\Grade;
+use Auth;
 
 class EmployeeController extends Controller
 {
@@ -16,8 +17,12 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return view('mgmt.emp.employee')->withUser($user);
+        $user = User::select('users.id','employee_id','name','email','gender','division_status','grade_status')
+            ->join('divisions', 'users.division_id', '=', 'divisions.id')
+            ->join('grades', 'users.grade_id', '=', 'grades.id')
+            ->get();
+
+        return view('mgmt.emp.employee',compact('users'))->withUser($user);
     }
 
     /**
@@ -30,7 +35,7 @@ class EmployeeController extends Controller
         $divisions = Division::all();
         $grades = Grade::all();
 
-        return view('mgmt.emp.newemployee',compact('divisions','grades'));
+        return view('mgmt.emp.newemp',compact('divisions','grades'));
     }
 
     /**
@@ -42,12 +47,12 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'employee_id' => 'required',
-            'name' => 'required',
-            'gender' => 'required',
-            'email' => 'required',
-            //'divisin_id' => 'required',
-            //'grade_id' => 'required'
+            'employee_id' => 'required|string|max:8|min:8|unique:users',
+            'name' => 'required|string',
+            'gender' => 'required|string',
+            'email' => 'required|string|email|unique:users',
+            'division_id' => 'required',
+            'grade_id' => 'required'
             ]);
 
         $user = new User;
@@ -55,8 +60,8 @@ class EmployeeController extends Controller
         $user->name = $request->name;
         $user->gender = $request->gender;
         $user->email = $request->email;
-        //$user->division_id = $request->division_id;
-        //$user->grade_id = $request->grade_id;
+        $user->division_id = $request->division_id;
+        $user->grade_id = $request->grade_id;
 
         $user->save();
 
@@ -71,7 +76,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -82,7 +87,11 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        $divisions = Division::all();
+        $grades = Grade::all();
+
+        return view('mgmt.emp.updateemp', compact('divisions','grades'))->withUser($user);
     }
 
     /**
@@ -94,7 +103,25 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'employee_id' => 'required|string|max:8|min:8',
+            'name' => 'required|string',
+            'gender' => 'required|string',
+            'email' => 'required|string|email',
+            'division_id' => 'required',
+            'grade_id' => 'required'
+            ]);
+
+        $user = User::find($id);
+        $user->employee_id = $request->employee_id;
+        $user->name = $request->name;
+        $user->gender = $request->gender;
+        $user->email = $request->email;
+        $user->division_id = $request->division_id;
+        $user->grade_id = $request->grade_id;
+        $user->save();
+
+        return redirect()->route('employee.index')->withUser($user);
     }
 
     /**

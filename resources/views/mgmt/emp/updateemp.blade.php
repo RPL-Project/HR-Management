@@ -5,15 +5,14 @@
 		<div class="col-6 offset-3">
 			<div class="card">
 				<div class="card-body">
-					<form method="POST" action="{{ route('profile.update', $user->id) }}">
+					<form method="POST" action="{{ route('employee.update', $user->id) }}">
                         {{csrf_field()}}
                         {{method_field('PATCH') }}
-
                         <div class="form-group row">
                             <label for="employee_id" class="col-md-4 col-form-label text-md-right">Employee id</label>
 
                             <div class="col-md-6">
-                                <input id="employee_id" type="text" class="form-control{{ $errors->has('employee_id') ? ' is-invalid' : '' }}" name="employee_id" value="{{Auth::user()->employee_id}}" required autofocus>
+                                <input id="employee_id" type="text" class="form-control{{ $errors->has('employee_id') ? ' is-invalid' : '' }}" name="employee_id" value="{{$user->employee_id}}" required autofocus>
 
                                 @if ($errors->has('employee_id'))
                                     <span class="invalid-feedback">
@@ -27,7 +26,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{Auth::user()->name}}" required>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{$user->name}}" required>
 
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">
@@ -58,7 +57,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{Auth::user()->email}}" required>
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{$user->email}}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback">
