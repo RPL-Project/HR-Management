@@ -7,7 +7,7 @@
 				<hr>
 			<div class="row">
 				<div class="col-2">
-					<a class="btn btn-primary btn-block" href="{{ route('employee.create')}}"><i class="fas fa-plus-square"></i> Add New</a>	
+					<a class="btn btn-success btn-block" href="{{ route('employee.create')}}"><i class="fas fa-plus-square"></i> Add New</a>	
 				</div>
 				<div class="col">
 					<form action="">					

@@ -7,7 +7,7 @@
 				<hr>
 			<div class="row">
 				<div class="col-2">
-					<a class="btn btn-primary btn-block" href="{{ route('employee.create')}}"><i class="fas fa-plus-square"></i> Add New</a>	
+					<a class="btn btn-success btn-block" href="{{ route('employee.create')}}"><i class="fas fa-plus-square"></i> Add New</a>	
 				</div>
 				<div class="col">
 					<form action="">					
@@ -24,7 +24,7 @@
 			</div>	
 			<table class="table" style="margin-top: 25px;">
 			  <thead class="thead-dark">
-			    <tr class="table-light">
+			    <tr class="table-light" align="left">
 			      <th scope="col">No.</th>
 			      <th scope="col">Employee ID</th>
 			      <th scope="col">Full Name</th>
@@ -39,7 +39,7 @@
 			  </thead>
 			  <tbody>
 			     @foreach ($user  as $index => $user)
-			    <tr class="table-light">			      
+			    <tr class="table-light" align="left">			      
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $user->employee_id }}</td>
 			      <td>{{ $user->name }}</td>

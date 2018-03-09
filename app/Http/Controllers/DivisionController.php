@@ -40,14 +40,15 @@ class DivisionController extends Controller
      */
     public function store(Request $request)
     {
+        $division = Division::all();
         $this->validate($request, [
-            'division' => 'required',
-            'description' => 'required'
+            'division_status' => 'required|regex:/^[\pL\s]+$/u',
+            'division_description' => 'required|regex:/^[\pL\s]+$/u'
             ]);
 
         $division = new Division;
-        $division->division_status = $request->division;
-        $division->division_description = $request->description;
+        $division->division_status = $request->division_status;
+        $division->division_description = $request->division_description;
         $division->save();
 
         return redirect()->route('division.index');
@@ -73,7 +74,7 @@ class DivisionController extends Controller
     public function edit($id)
     {
         $division = Division::find($id);
-        return view('mgmt.div.updatediv')->withDivision($division);
+        return view('mgmt.div.updatediv',compact('division'))->withDivision($division);
     }
 
     /**
@@ -86,16 +87,16 @@ class DivisionController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'division' => 'required',
-            'description' => 'required'
+            'division_status' => 'required|regex:/^[\pL\s]+$/u',
+            'division_description' => 'required|regex:/^[\pL\s]+$/u'
             ]);
 
         $division = Division::find($id);
-        $division->division_status = $request->division;
-        $division->division_description = $request->description;
+        $division->division_status = $request->division_status;
+        $division->division_description = $request->division_description;
         $division->save();
 
-        return redirect()->route('division.index');
+        return redirect()->route('division.index')->withDivision($division);
     }
 
     /**
