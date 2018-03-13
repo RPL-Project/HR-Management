@@ -44,8 +44,8 @@
 
                             <div class="col-md-6">
                                 <select id="gender" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender" value="{{ old('gender') }}" placeholder="Select gender" required>
-                                    <option>Man</option>
-                                    <option>Woman</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
                                 </select>
 
                                 @if ($errors->has('gender'))

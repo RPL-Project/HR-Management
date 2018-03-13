@@ -39,7 +39,7 @@
 			    <tr class="table-light" align="left">			      
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $division->division_status }}</td>
-			      <td>{{ $division->division_description }}</td>
+			      <td style="max-width: 300px;">{{ $division->division_description }}</td>
 			      @auth('web')
 				      <td>
 				      	<div class="row">

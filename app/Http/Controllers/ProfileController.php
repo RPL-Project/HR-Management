@@ -66,8 +66,8 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, [
-            'employee_id' => 'required|string|max:8|min:8',
-            'name' => 'required|string',
+            'employee_id' => 'required|max:8|min:8|regex:/^[0-9]+$/',
+            'name' => 'required|regex:/^[\pL\s]+$/u',
             'gender' => 'required|string',
             'email' => 'required|string|email',
             'division_id' => 'required',

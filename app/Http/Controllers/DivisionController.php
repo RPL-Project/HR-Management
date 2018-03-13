@@ -87,8 +87,8 @@ class DivisionController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'division_status' => 'required|regex:/^[\pL\s]+$/u',
-            'division_description' => 'required|regex:/^[\pL\s]+$/u'
+            'division_status' => 'required|regex:/^[\pL\s]+$/u|max:5',
+            'division_description' => 'required|regex:/^[\pL\s]+$/u|max:200'
             ]);
 
         $division = Division::find($id);
@@ -108,6 +108,10 @@ class DivisionController extends Controller
     public function destroy($id)
     {
         $division = Division::find($id);
+        $users = Users::find(id);
+        //if($users != null )
+            //else
+                
         $division ->delete();
 
         return redirect()->back();
