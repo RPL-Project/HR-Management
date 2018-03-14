@@ -26,8 +26,8 @@
 						<div class="form-group row">
 							<label for="division_description" class="col-md-4 col-form-label text-md-right">Description</label>
                             <div class="col-md-6">
-                                <textarea id="division_description" type="text" class="form-control{{ $errors->has('division_description') ? ' is-invalid' : '' }}" name="division_description" value="{{old('$division->division_description')}}" required > </textarea><p>Text only input 200 Character</p>
-
+                                <textarea id="division_description" type="text" class="form-control{{ $errors->has('division_description') ? ' is-invalid' : '' }}" name="division_description" value="{{old('$division->division_description')}}" required > </textarea>
+                             
 
                                 @if ($errors->has('division_description'))
                                     <span class="invalid-feedback">

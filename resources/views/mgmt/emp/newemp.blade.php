@@ -12,6 +12,7 @@
 
                             <div class="col-md-6">
                                 <input id="employee_id" type="text" class="form-control{{ $errors->has('employee_id') ? ' is-invalid' : '' }}" name="employee_id" value="{{old('employee_id')}}" placeholder="Employee id" required autofocus>
+                                
 
                                 @if ($errors->has('employee_id'))
                                     <span class="invalid-feedback">

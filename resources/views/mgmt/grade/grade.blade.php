@@ -40,7 +40,7 @@
 			    <tr class="table-light" align="left">			      
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $grade->grade_status }}</td>
-			      <td>{{ $grade->grade_description }}</td>
+			      <td style="max-width:300px;">{{ $grade->grade_description }}</td>
 			      @auth('web')
 				      <td>
 				      	<div class="row">

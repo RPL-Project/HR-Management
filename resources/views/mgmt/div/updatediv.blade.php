@@ -23,7 +23,7 @@
 						<div class="form-group row">
 							<label for="division_description" class="col-md-4 col-form-label text-md-right">Description</label>
                             <div class="col-md-6">
-                                <textarea id="division_description" type="text" class="form-control{{ $errors->has('division_description') ? ' is-invalid' : '' }}" name="division_description"required>{{($division->division_description)}}</textarea><p style="font-size:12px; font-color:gray solid;"> Text only can input 200 Character</p>
+                                <textarea id="division_description" type="text" class="form-control{{ $errors->has('division_description') ? ' is-invalid' : '' }}" name="division_description"required>{{($division->division_description)}}</textarea><p style="font-size:12px; font-color:gray;"> Text only can input 200 Character</p>
 
 
                                 @if ($errors->has('division_description'))
@@ -35,7 +35,7 @@
 						</div>
 						<div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-									<a onclick="history.go(-1)" class="btn btn-primary" style="color:#fff;">Back</a>
+									<a onclick="history.go(-1)" class="btn btn-danger" style="color:#fff;">Back</a>
                                 <button type="submit" class="btn btn-success">
                                     Save
                                 </button>
