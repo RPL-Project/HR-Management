@@ -7,6 +7,7 @@ use App\User;
 use App\Division;
 use App\Grade;
 use Auth;
+use Yajra\Datatables\Datatables;
 
 class EmployeeController extends Controller
 {
@@ -23,6 +24,11 @@ class EmployeeController extends Controller
             ->get();
 
         return view('mgmt.emp.employee',compact('users'))->withUser($user);
+    }
+
+    public function dataTable()
+    {
+        return Datatables::of(Table::query())->make(true);
     }
 
     /**

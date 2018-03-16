@@ -25,7 +25,7 @@
 						<div class="form-group">
 							<div class="row">
 								<div class="col-2">
-									<a onclick="history.go(-1)" class="btn btn-primary" style="font-color:white;">Back</a>
+									<a onclick="history.go(-1)" class="btn btn-primary">Back</a>
 								</div>
 								<div class="col-4 offset-6 text-right">
 									{{ Form::submit('Add', ['class' => 'btn btn-primary']) }}

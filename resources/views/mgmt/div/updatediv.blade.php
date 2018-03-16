@@ -35,7 +35,7 @@
 						</div>
 						<div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-									<a onclick="history.go(-1)" class="btn btn-danger" style="color:#fff;">Back</a>
+									<a onclick="history.go(-1)" class="btn btn-primary" style="color:#fff;">Back</a>
                                 <button type="submit" class="btn btn-success">
                                     Save
                                 </button>

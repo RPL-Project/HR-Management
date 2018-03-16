@@ -23,5 +23,13 @@
     @yield('footer')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+     <script src="{{url('js/jquery.min.js')}}" ></script>
+    <!-- ini untuk bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" ></script>
+    <script src="{{url('js/bootstrap.min.js')}}"></script>
+    <!-- end bootstrap -->
+
+    <!-- ini untuk datatables -->
+    <script src="{{url('js/jquery.dataTables.min.js')}}"></script>
 </body>
 </html>

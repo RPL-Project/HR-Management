@@ -22,7 +22,8 @@
 					</form>						
 				</div>
 			</div>	
-			<table class="table" style="margin-top: 25px;">
+			<div class="dataTables_length" id="table-buku_length"><label>Show <select name="table-buku_length" aria-controls="table-buku" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
+			<table class="table dataTable" style="margin-top: 25px;" id="employee-table">	
 			  <thead class="thead-dark">
 			    <tr class="table-light" align="left">
 			      <th scope="col">No.</th>
@@ -72,5 +73,36 @@
 			  </tbody>
 			</table>
 		</div>
-	</div>
+	</div>	
+
+	<script src="{{url('js/jquery.min.js')}}" ></script>
+    <!-- ini untuk bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" ></script>
+    <script src="{{url('js/bootstrap.min.js')}}"></script>
+    <!-- end bootstrap -->
+
+	<!-- ini untuk datatables -->
+    <script src="{{url('js/jquery.dataTables.min.js')}}"></script>
+
+    <!-- Pastikan posisi dibawah import datatablesnya -->
+    <script type="text/javascript">
+    $(function() {
+        var oTable = $('#employee-table').dataTable({
+            processing: false,
+            serverSide: true,
+            ajax: {
+                url: '{{ url("employee") }}'
+            },
+            columns: [
+            {data: 'employee_id',   name: 'employee_id'},
+            {data: 'name',     name: 'name'},
+            {data: 'email',   name: 'email'},
+            {data: 'division_status', name: 'division_status',  orderable: false},
+            {data: 'grade_status',  name: 'grade_status',   orderable: false, searchable: false},
+        ],
+        });
+    });
+  </script>
+  <!-- end datatables -->
+
 @endsection
