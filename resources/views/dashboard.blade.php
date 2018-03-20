@@ -16,8 +16,7 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolor enim totam, fugiat minima amet ad tempore? Laboriosam, nisi, voluptatum.</p>
 				</div>
 			</div>
-			<div class="col-9">				
-							
+			<div class="col-9">					
 				<div class="card">						
 					<div class="card-body">
 						<h4 class="card-title">Lorem ipsum dolor sit amet.</h4>
