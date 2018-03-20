@@ -6,9 +6,11 @@
 				<h2 class="text-center"><strong>Employee Management</strong></h2>
 				<hr>
 			<div class="row">
+				@auth('web')
 				<div class="col-2">
 					<a class="btn btn-success btn-block" href="{{ route('employee.create')}}"><i class="fas fa-plus-square"></i> Add New</a><br>
 				</div>
+				@endauth
 			</div>	
 			<!-- <div class="dataTables_length" id="table-buku_length"><label>Show <select name="table-buku_length" aria-controls="table-buku" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div> -->
 			<table class="table dataTable" style="margin-top: 25px;" id="employee-table">	

@@ -12,7 +12,7 @@
 				<div class="card-body">
 					{!! Form::open(['route' => 'division.store', 'method' => 'POST']) !!}
 						<div class="form-group row">
-							<label for="division_status" class="col-md-4 col-form-label text-md-right">Division &nbsp;:</label>
+							<label for="division_status" class="col-md-4 col-form-label text-md-right">Division</label>
                             <div class="col-md-6">
                                 <input id="division_status" type="text" class="form-control{{ $errors->has('division_status') ? ' is-invalid' : '' }}" name="division_status" value="{{old('$division->division_status')}}" required autofocus>
 
@@ -24,7 +24,7 @@
                             </div>
 						</div>
 						<div class="form-group row">
-							<label for="division_description" class="col-md-4 col-form-label text-md-right">Description &nbsp;:</label>
+							<label for="division_description" class="col-md-4 col-form-label text-md-right">Description</label>
                             <div class="col-md-6">
                                 <textarea id="division_description" type="text" class="form-control{{ $errors->has('division_description') ? ' is-invalid' : '' }}" name="division_description" value="{{old('$division->division_description')}}" required > </textarea>
                              

@@ -18,6 +18,7 @@
 			      <th scope="col">No.</th>
 			      <th scope="col">Division Name</th>
 			      <th scope="col">Description</th>
+			      <th scope="col">Status</th>
 			      @auth('web')
 			      	<th scope="col">Action</th>
 			      @endauth
@@ -29,6 +30,7 @@
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $division->division_status }}</td>
 			      <td style="max-width: 300px;" align="left">{{ $division->division_description }}</td>
+			      <td>Why</td>
 			      @auth('web')
 				      <td>
 				      	<div class="row">

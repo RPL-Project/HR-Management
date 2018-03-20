@@ -18,6 +18,7 @@
 			      <th scope="col">No.</th>
 			      <th scope="col">Grade Name</th>
 			      <th scope="col">Description</th>
+			      <th scope="col">Status</th>
 			      @auth('web')
 			      	<th scope="col">Action</th>
 			      @endauth
@@ -29,10 +30,11 @@
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $grade->grade_status }}</td>
 			      <td style="max-width:300px;">{{ $grade->grade_description }}</td>
+			      <td>Why</td>
 			      @auth('web')
 				      <td>
 				      	<div class="row">
-				      		<div class="form-inline mid" >
+				      		<div class="form-inline mid">
 					      		<div class="form-group mb-2" style="color:white;" >
 					      			{!! Form::open(['route' => ['grade.edit', $grade->id], 'method' => 'GET']) !!}
 					      				{{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}

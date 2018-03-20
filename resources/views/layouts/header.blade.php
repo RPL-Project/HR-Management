@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 10px;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 10px;">
   <div class="container">    
     <a class="navbar-brand" href="/">HR Management</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
         </li>   
       </ul>
       <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         @if(Auth::check())
           {{Auth::user()->name}}
         @else
@@ -30,16 +30,16 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">        
           @if(Auth::check())
-            <a class="dropdown-item" href="{{ route('profile.index') }}">Profile</a>
+            <a class="dropdown-item" href="{{ route('profile.index') }}"><i class="fas fa-user-circle"></i> Profile</a>
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="fa fa-sign-out"></i> Logout
+                <i class="fas fa-sign-out-alt"></i> Logout
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
             </form>
           @else
-            <a class="dropdown-item" href="{{route('login')}}">Login</a>
-            <a class="dropdown-item" href="{{route('register')}}">Register</a>
+            <a class="dropdown-item" href="{{route('login')}}"><i class="fas fa-sign-out-alt"></i> Login</a>
+            <a class="dropdown-item" href="{{route('register')}}"><i class="fas fa-user-plus"></i> Register</a>
           @endif          
         </div>
       </div>       

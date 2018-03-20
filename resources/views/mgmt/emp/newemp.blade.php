@@ -8,7 +8,7 @@
 					<form action="{{route('employee.store')}}" method="POST">
 					{{csrf_field()}}
 						 <div class="form-group row">
-                            <label for="employee_id" class="col-md-4 col-form-label text-md-right">Employee id &nbsp;:</label>
+                            <label for="employee_id" class="col-md-4 col-form-label text-md-right">Employee id</label>
 
                             <div class="col-md-6">
                                 <input id="employee_id" type="text" class="form-control{{ $errors->has('employee_id') ? ' is-invalid' : '' }}" name="employee_id" value="{{old('employee_id')}}" placeholder="Employee id" required autofocus>
@@ -23,7 +23,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Name &nbsp;:</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{old('name')}}" placeholder="name" required>
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">Gender &nbsp;:</label>
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">Gender</label>
 
                             <div class="col-md-6">
                                 <select id="gender" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender" value="{{ old('gender') }}" placeholder="Select gender" required>
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address &nbsp;:</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{old('email')}}" placeholder="email" required>
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="division" class="col-md-4 col-form-label text-md-right">Division &nbsp;:</label>
+                            <label for="division" class="col-md-4 col-form-label text-md-right">Division</label>
                             <div class="col-md-6">
                                 <select name="division_id" class="form-control{{ $errors->has('division_id') ? ' is-invalid' : '' }}">
                                 @foreach ($divisions as $division)
@@ -83,7 +83,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="grade" class="col-md-4 col-form-label text-md-right">Grade &nbsp;:</label>
+                            <label for="grade" class="col-md-4 col-form-label text-md-right">Grade</label>
                             <div class="col-md-6">
                                 <select name="grade_id" class="form-control{{ $errors->has('grade_id') ? ' is-invalid' : '' }}">
                                 @foreach ($grades as $grade)

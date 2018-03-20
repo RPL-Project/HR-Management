@@ -1,4 +1,4 @@
-<footer class="container-fluid static-bottom navbar-dark bg-dark">
+<footer class="container-fluid static-bottom">
 	<div class="row">						
 		<div class="col">
 			<address>

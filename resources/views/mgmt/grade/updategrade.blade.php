@@ -7,7 +7,7 @@
 				<div class="card-body">
 					{!! Form::open(['route' => ['grade.update', $grade->id], 'method' => 'PUT']) !!}
 						<div class="form-group">
-							{{ Form::label('grade', 'Division Name') }}
+							{{ Form::label('grade', 'Grade Name') }}
 							{{ Form::text('grade', $grade->grade_status, ['class' => 'form-control', 'placeholder' => 'Division Name'])}}
 						</div>
 						<div class="form-group">
@@ -20,7 +20,7 @@
 									<a onclick="history.go(-1)" class="btn btn-primary" style="color:white;">Back</a>
 								</div>
 								<div class="col-4 offset-6 text-right">
-									{{ Form::submit('Save Changes', ['class' => 'btn btn-success']) }}
+									{{ Form::submit('Save', ['class' => 'btn btn-success']) }}
 								</div>
 							</div>					
 						</div>
