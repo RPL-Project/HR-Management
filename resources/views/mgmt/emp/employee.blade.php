@@ -7,22 +7,10 @@
 				<hr>
 			<div class="row">
 				<div class="col-2">
-					<a class="btn btn-success btn-block" href="{{ route('employee.create')}}"><i class="fas fa-plus-square"></i> Add New</a>	
-				</div>
-				<div class="col">
-					<form action="">					
-						<div class="form-row">						
-							<div class="col-11">
-								<input type="text" class="form-control" placeholder="search">
-							</div>
-							<div class="col">
-								<button class="btn btn-primary btn-block"><i class="fas fa-search"></i></button>
-							</div>																	
-						</div>
-					</form>						
+					<a class="btn btn-success btn-block" href="{{ route('employee.create')}}"><i class="fas fa-plus-square"></i> Add New</a><br>
 				</div>
 			</div>	
-			<div class="dataTables_length" id="table-buku_length"><label>Show <select name="table-buku_length" aria-controls="table-buku" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
+			<!-- <div class="dataTables_length" id="table-buku_length"><label>Show <select name="table-buku_length" aria-controls="table-buku" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div> -->
 			<table class="table dataTable" style="margin-top: 25px;" id="employee-table">	
 			  <thead class="thead-dark">
 			    <tr class="table-light" align="left">
@@ -55,7 +43,7 @@
 					      		<div class="form-group mb-2">
 					      			{!! Form::open(['route' => ['employee.edit', $user->id], 'method' => 'GET']) !!}
 									{{csrf_field()}}
-									{{ Form::submit('Edit Profile', ['class' => 'btn btn-success']) }}
+									{{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
 									{!! Form::close() !!}	
 					      		</div>
 					      		&nbsp; | &nbsp;
@@ -86,22 +74,25 @@
 
     <!-- Pastikan posisi dibawah import datatablesnya -->
     <script type="text/javascript">
-    $(function() {
-        var oTable = $('#employee-table').dataTable({
-            processing: false,
-            serverSide: true,
-            ajax: {
-                url: '{{ url("employee") }}'
-            },
-            columns: [
-            {data: 'employee_id',   name: 'employee_id'},
-            {data: 'name',     name: 'name'},
-            {data: 'email',   name: 'email'},
-            {data: 'division_status', name: 'division_status',  orderable: false},
-            {data: 'grade_status',  name: 'grade_status',   orderable: false, searchable: false},
-        ],
-        });
-    });
+    $(document).ready( function () {
+	    $('#employee-table').DataTable();
+	} );
+    // $(function() {
+    //     var oTable = $('#employee-table').dataTable({
+    //         processing: false,
+    //         serverSide: true,
+    //         ajax: {
+    //             url: '{{ url("employee") }}'
+    //         },
+    //         columns: [
+    //         {data: 'employee_id',   name: 'employee_id'},
+    //         {data: 'name',     name: 'name'},
+    //         {data: 'email',   name: 'email'},
+    //         {data: 'division_status', name: 'division_status',  orderable: false},
+    //         {data: 'grade_status',  name: 'grade_status',   orderable: false, searchable: false},
+    //     ],
+    //     });
+    // });
   </script>
   <!-- end datatables -->
 

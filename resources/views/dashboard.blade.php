@@ -17,18 +17,7 @@
 				</div>
 			</div>
 			<div class="col-9">				
-				<div class="form-group">
-					<form action="">					
-						<div class="form-row">						
-							<div class="col-11">
-								<input type="text" class="form-control" placeholder="search">
-							</div>
-							<div class="col">
-								<button class="btn btn-primary btn-block"><i class="fas fa-search"></i></button>
-							</div>																	
-						</div>
-					</form>						
-				</div>				
+							
 				<div class="card">						
 					<div class="card-body">
 						<h4 class="card-title">Lorem ipsum dolor sit amet.</h4>

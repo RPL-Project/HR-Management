@@ -8,24 +8,13 @@
 			<div class="row">
 				@auth('web')
 					<div class="col-2">
-						<a class="btn btn-success btn-block" href="{{ route('division.create')}}"><i class="fas fa-plus-square"></i> Add New</a>	
+						<a class="btn btn-success btn-block" href="{{ route('division.create')}}"><i class="fas fa-plus-square"></i> Add New</a><br>
 					</div>
 				@endauth
-				<div class="col">
-					<form action="">					
-						<div class="form-row">						
-							<div class="col-11">
-								<input type="text" class="form-control" placeholder="search">
-							</div>
-							<div class="col">
-								<button class="btn btn-primary btn-block"><i class="fas fa-search"></i></button>
-						</div>
-					</form>						
-				</div>
 			</div>	
-			<table class="table text-center" style="margin-top: 25px;">
+			<table class="table text-center" style="margin-top: 25px;" id="div-table">
 			  <thead class="thead-dark">
-			    <tr class="table-light" align="left">
+			    <tr class="table-light" align="center">
 			      <th scope="col">No.</th>
 			      <th scope="col">Division Name</th>
 			      <th scope="col">Description</th>
@@ -36,17 +25,17 @@
 			  </thead>
 			  <tbody>
 			  @foreach ($division  as $index => $division)
-			    <tr class="table-light" align="left">			      
+			    <tr class="table-light" align="center">			      
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $division->division_status }}</td>
-			      <td style="max-width: 300px;">{{ $division->division_description }}</td>
+			      <td style="max-width: 300px;" align="left">{{ $division->division_description }}</td>
 			      @auth('web')
 				      <td>
 				      	<div class="row">
-				      		<div class="form-inline">
+				      		<div class="form-inline mid">
 					      		<div class="form-group mb-2" style="color:white;">
 					      			{!! Form::open(['route' => ['division.edit', $division->id], 'method' => 'GET']) !!}
-					      				{{ Form::submit('Edit', ['class' => 'btn btn-success']) }}
+					      				{{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
 					      			{!! Form::close() !!}	
 					      		</div>
 					      		&nbsp; | &nbsp;
@@ -65,4 +54,19 @@
 			</table>
 		</div>
 	</div>
+	<script src="{{url('js/jquery.min.js')}}" ></script>
+    <!-- ini untuk bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" ></script>
+    <script src="{{url('js/bootstrap.min.js')}}"></script>
+    <!-- end bootstrap -->
+
+	<!-- ini untuk datatables -->
+    <script src="{{url('js/jquery.dataTables.min.js')}}"></script>
+
+    <!-- Pastikan posisi dibawah import datatablesnya -->
+    <script type="text/javascript">
+    $(document).ready( function () {
+	    $('#div-table').DataTable();
+	} );
+	</script>
 @endsection

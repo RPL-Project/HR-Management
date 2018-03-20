@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Division;
+use Yajra\Datatables\Datatables;
 
 class DivisionController extends Controller
 {
@@ -20,6 +21,11 @@ class DivisionController extends Controller
     {
         $division = Division::all();
         return view('mgmt.div.division')->withDivision($division);
+    }
+
+    public function dataTable()
+    {
+        return Datatables::of(Table::query())->make(true);
     }
 
     /**

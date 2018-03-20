@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Grade;
+use Yajra\Datatables\Datatables;
 
 class GradeController extends Controller
 {
@@ -20,6 +21,11 @@ class GradeController extends Controller
     {
         $grade = Grade::all();
         return view('mgmt.grade.grade')->withGrade($grade);
+    }
+
+    public function dataTable()
+    {
+        return Datatables::of(Table::query())->make(true);
     }
 
     /**

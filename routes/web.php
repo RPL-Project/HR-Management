@@ -22,7 +22,3 @@ Route::resource('/division', 'DivisionController');
 Route::resource('/grade', 'GradeController');
 
 Route::resource('/profile', 'ProfileController');
-
-Route::get('/', 'DatatablesController@index');
-
-Route::get('/data-table', 'DatatablesController@dataTable');

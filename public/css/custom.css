@@ -33,8 +33,8 @@ footer {
 	background-color: #c0392b;
 }
 hr {
-	border: none;
-	border-bottom: 2px solid #fff;
+	border: none ;
+	border-bottom: 2px solid gray;
 }
 .profile{
 	width: 248px;
@@ -45,4 +45,7 @@ hr {
 	height: 30px;
 	font-weight: bold;
 	font-size: 15px;
+}
+.mid{
+	margin-left: 20%;
 }
