@@ -9,6 +9,12 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>HR Management</title>
+    <style>
+    body {
+    background-image: url("bg.png");
+    background-repeat: repeat-x;
+}
+</style>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

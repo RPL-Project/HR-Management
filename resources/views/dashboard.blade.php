@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col">			
 				<div class="list-group">				  
-				  <a href="#" class="list-group-item list-group-item-action active">Dapibus ac facilisis in</a>
+				  <a href="#" class="list-group-item list-group-item-action active navbar-dark bg-dark">Dapibus ac facilisis in</a>
 				  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
 				  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
 				  <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
@@ -16,11 +16,11 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolor enim totam, fugiat minima amet ad tempore? Laboriosam, nisi, voluptatum.</p>
 				</div>
 			</div>
-			<div class="col-9">				
-							
+			<div class="col-10">				
 				<div class="card">						
 					<div class="card-body">
-						<h3 class="card-title">Division</h3>
+						<h3 class="card-title"> &raquo; Division</h3>
+						<hr class="hr-dash">
 						<table class="table text-center" style="margin-top: 25px;" id="div-table">
 			  <thead class="thead-dark">
 			    <tr class="table-light" align="center">
@@ -64,7 +64,8 @@
 			  </tbody>
 			</table>
 			<br><br>
-			<h3 class="card-title">Grade</h3>
+			<h3 class="card-title"> &raquo; Grade</h3>
+			<hr class="hr-dash">
 			<table class="table text-center" style="margin-top: 25px;" id="grd-table">
 			  <thead class="thead-dark">
 			    <tr class="table-light" align="center">

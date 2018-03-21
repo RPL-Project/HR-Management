@@ -13,7 +13,9 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                background-image: url('../../public/img/bg.png');
+                background-repeat: repeat-x;
+                background-color: #00ff00;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
