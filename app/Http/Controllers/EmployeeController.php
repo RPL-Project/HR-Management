@@ -23,6 +23,12 @@ class EmployeeController extends Controller
             ->join('grades', 'users.grade_id', '=', 'grades.id')
             ->get();
 
+        $users = User::find(Auth::user()->id)
+            ->join('divisions', 'users.division_id', '=', 'divisions.id')
+            ->join('grades', 'users.grade_id', '=', 'grades.id')
+            ->where('users.id','=',Auth::user()->id)
+            ->get();
+
         return view('mgmt.emp.employee',compact('users'))->withUser($user);
     }
 
@@ -38,8 +44,12 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        $divisions = Division::all();
-        $grades = Grade::all();
+        $divisions = Division::select('*')
+        ->where('status', '=', 'accept')
+        ->get();
+        $grades = Grade::select('*')
+        ->where('status', '=', 'accept')
+        ->get();
 
         return view('mgmt.emp.newemp',compact('divisions','grades'));
     }
@@ -94,8 +104,12 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        $divisions = Division::all();
-        $grades = Grade::all();
+        $divisions = Division::select('*')
+        ->where('status', '=', 'accept')
+        ->get();
+        $grades = Grade::select('*')
+        ->where('status', '=', 'accept')
+        ->get();
 
         return view('mgmt.emp.updateemp', compact('divisions','grades'))->withUser($user);
     }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Division;
+use App\User;
+use Auth;
 use Yajra\Datatables\Datatables;
 
 class DivisionController extends Controller
@@ -20,7 +22,11 @@ class DivisionController extends Controller
     public function index()
     {
         $division = Division::all();
-        return view('mgmt.div.division')->withDivision($division);
+         $user = User::find(Auth::user()->id)
+            ->join('divisions', 'users.division_id', '=', 'divisions.id')
+            ->where('users.id','=',Auth::user()->id)
+            ->get();
+        return view('mgmt.div.division')->withDivision($division)->withUser($user);
     }
 
     public function dataTable()
@@ -49,12 +55,14 @@ class DivisionController extends Controller
         $division = Division::all();
         $this->validate($request, [
             'division_status' => 'required|regex:/^[\pL\s]+$/u',
-            'division_description' => 'required|regex:/^[\pL\s]+$/u'
+            'division_description' => 'required|regex:/^[\pL\s]+$/',
+            'status' => 'required'
             ]);
 
         $division = new Division;
         $division->division_status = $request->division_status;
         $division->division_description = $request->division_description;
+        $division->status = $request->status;
         $division->save();
 
         return redirect()->route('division.index');
@@ -93,13 +101,15 @@ class DivisionController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'division_status' => 'required|regex:/^[\pL\s]+$/u|max:5',
-            'division_description' => 'required|regex:/^[\pL\s]+$/u|max:200'
+            'division_status' => 'required|regex:/^[\pL\s]+$/u',
+            'division_description' => 'required|regex:/^[\pL\s]+$/u|max:200',
+            'status' => 'required'
             ]);
 
         $division = Division::find($id);
         $division->division_status = $request->division_status;
         $division->division_description = $request->division_description;
+        $division->status = $request->status;
         $division->save();
 
         return redirect()->route('division.index')->withDivision($division);
@@ -114,12 +124,7 @@ class DivisionController extends Controller
     public function destroy($id)
     {
         $division = Division::find($id);
-        $users = Users::find(id);
-        //if($users != null )
-            //else
-                
         $division ->delete();
-
         return redirect()->back();
     }
 }

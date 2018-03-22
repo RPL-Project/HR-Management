@@ -36,6 +36,15 @@
                                 @endif
                             </div>
 						</div>
+						@if(Auth::user()->role_id == 1)
+						<div>
+                            <input id="status" type="hidden" class="form-control{{ $errors->has('division_status') ? ' is-invalid' : '' }}" name="status" value="accept">
+                        </div>
+                        @elseif(Auth::user()->role_id == 2)
+                        <div>
+                            <input id="status" type="hidden" class="form-control{{ $errors->has('division_status') ? ' is-invalid' : '' }}" name="status" value="pending">
+                        </div>
+                        @endif
 						<div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
 									<a onclick="history.go(-1)" class="btn btn-primary" style="color:#fff;">Back</a>

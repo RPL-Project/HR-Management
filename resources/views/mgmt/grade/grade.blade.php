@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+@if (Auth::check())
 	<div id="wrapper">
 			<div class="container">
+			@if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
 				<h2 class="text-center"><strong>Grade Management</strong></h2>
 				<hr>
 			<div class="row">
@@ -30,7 +32,7 @@
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $grade->grade_status }}</td>
 			      <td style="max-width:300px;">{{ $grade->grade_description }}</td>
-			      <td>Why</td>
+			      <td>{{ $grade->status }}</td>
 			      @auth('web')
 				      <td>
 				      	<div class="row">
@@ -54,6 +56,32 @@
 			   @endforeach			    
 			  </tbody>
 			</table>
+		@else
+			<h2 class="text-center"><strong>Grade Management</strong></h2>
+				<hr>
+			<div class="row">
+			</div>	
+			<table class="table text-center" style="margin-top: 25px;" id="grd-table">
+			  <thead class="thead-dark">
+			    <tr class="table-light" align="center">
+			      <th scope="col">No.</th>
+			      <th scope="col">Grade Name</th>
+			      <th scope="col">Description</th>
+			      <th scope="col">Status</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  @foreach ($user  as $index => $grade)
+			    <tr class="table-light" align="center">			      
+			      <th scope="row">{{ $index+1 }}</th>
+			      <td>{{ $grade->grade_status }}</td>
+			      <td style="max-width:300px;">{{ $grade->grade_description }}</td>
+			      <td>{{ $grade->status }}</td>
+			    </tr>
+			   @endforeach			    
+			  </tbody>
+			</table>
+		@endif
 		</div>
 	</div>
 	<script src="{{url('js/jquery.min.js')}}" ></script>
@@ -71,4 +99,9 @@
 	    $('#grd-table').DataTable();
 	} );
 	</script>
+@else
+<div class="card-body">
+	You are guest
+</div>
+@endif
 @endsection

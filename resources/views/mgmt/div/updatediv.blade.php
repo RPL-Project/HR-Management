@@ -33,6 +33,22 @@
                                 @endif
                             </div>
 						</div>
+                        @if(Auth::user()->role_id == 1)
+                            <div class="form-group row">
+                                <label for="status" class="col-md-4 col-form-label text-md-right">Status
+                                </label>
+                                <div class="col-md-6">
+                                    <select id="status" type="text" class="form-control" name="status">
+                                        <option>Accept</option>
+                                        <option>Reject</option>
+                                    </select>
+                                </div>
+                            </div>
+                        @elseif(Auth::user()->role_id == 2)
+                            <div>
+                                <input type="hidden" id="status" name="status" value="pending">
+                            </div>
+                        @endif
 						<div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
 									<a onclick="history.go(-1)" class="btn btn-primary" style="color:#fff;">Back</a>

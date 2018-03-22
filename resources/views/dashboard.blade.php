@@ -16,8 +16,10 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolor enim totam, fugiat minima amet ad tempore? Laboriosam, nisi, voluptatum.</p>
 				</div>
 			</div>
-			<div class="col-10">				
-				<div class="card">						
+			<div class="col-10">		
+				<div class="card">
+					@if (Auth::check())
+					@if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)						
 					<div class="card-body">
 						<h3 class="card-title"> &raquo; Division</h3>
 						<hr class="hr-dash">
@@ -39,7 +41,7 @@
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $division->division_status }}</td>
 			      <td style="max-width: 200px;" align="left">{{ $division->division_description }}</td>
-			      <td><a class="btn btn-success" href="{{ route('division.create')}}"><i class="fas fa-check-square"></i></a> </td>
+			      <td>{{ $division->status}}</td>
 			      @auth('web')
 				      <td>
 				      	<div class="row">
@@ -84,7 +86,7 @@
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $grade->grade_status }}</td>
 			      <td style="max-width:200px;">{{ $grade->grade_description }}</td>
-			      <td>Why</td>
+			      <td>{{ $grade->status }}</td>
 			      @auth('web')
 				      <td>
 				      	<div class="row">
@@ -108,8 +110,19 @@
 			   @endforeach			    
 			  </tbody>
 			</table>	
-					</div>				
-				</div>			
+					</div>
+					@else
+					<div class="card-body">
+					Lorem Ipsum Dolor Sit Amet
+					</div>
+					@endif
+
+					@else
+					<div class="card-body">
+						You are guest
+					</div>
+					@endif			
+				</div>		
 			</div>
 		</div>				
 	</div>	

@@ -49,8 +49,12 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-		$divisions = Division::all();
-        $grades = Grade::all();
+		$divisions = Division::select('*')
+        ->where('status', '=', 'accept')
+        ->get();
+        $grades = Grade::select('*')
+        ->where('status', '=', 'accept')
+        ->get();
         $user = User::find(Auth::user()->id);
 
         return view('profile.updateprofile', compact('divisions','grades'))->withUser($user);

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Grade;
+use App\User;
+use Auth;
 use Yajra\Datatables\Datatables;
 
 class GradeController extends Controller
@@ -20,7 +22,11 @@ class GradeController extends Controller
     public function index()
     {
         $grade = Grade::all();
-        return view('mgmt.grade.grade')->withGrade($grade);
+        $user = User::find(Auth::user()->id)
+            ->join('grades', 'users.grade_id', '=', 'grades.id')
+            ->where('users.id','=',Auth::user()->id)
+            ->get();
+        return view('mgmt.grade.grade')->withGrade($grade)->withUser($user);
     }
 
     public function dataTable()
@@ -46,14 +52,17 @@ class GradeController extends Controller
      */
     public function store(Request $request)
     {
+        $grade = Grade::all();
         $this->validate($request, [
-            'grade' => 'required',
-            'description' => 'required'
+            'grade_status' => 'required|regex:/^[\pL\s]+$/u',
+            'grade_description' => 'required|regex:/^[\pL\s]+$/',
+            'status' => 'required'
             ]);
 
         $grade = new Grade;
-        $grade->grade_status = $request->grade;
-        $grade->grade_description = $request->description;
+        $grade->grade_status = $request->grade_status;
+        $grade->grade_description = $request->grade_description;
+        $grade->status = $request->status;
         $grade->save();
 
         return redirect()->route('grade.index');
@@ -79,7 +88,7 @@ class GradeController extends Controller
     public function edit($id)
     {
         $grade = Grade::find($id);
-        return view('mgmt.grade.updategrade')->withGrade($grade);
+        return view('mgmt.grade.updategrade',compact('grade'))->withGrade($grade);
     }
 
     /**
@@ -92,16 +101,18 @@ class GradeController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'grade' => 'required',
-            'description' => 'required'
+            'grade_status' => 'required|regex:/^[\pL\s]+$/u',
+            'grade_description' => 'required|regex:/^[\pL\s]+$/u|max:200',
+            'status' => 'required'
             ]);
 
         $grade = Grade::find($id);
-        $grade->grade_status = $request->grade;
-        $grade->grade_description = $request->description;
+        $grade->grade_status = $request->grade_status;
+        $grade->grade_description = $request->grade_description;
+        $grade->status = $request->status;
         $grade->save();
 
-        return redirect()->route('grade.index');
+        return redirect()->route('grade.index')->withGrade($grade);
     }
 
     /**
@@ -114,7 +125,6 @@ class GradeController extends Controller
     {
         $grade = Grade::find($id);
         $grade ->delete();
-
         return redirect()->back();
     }
 }
