@@ -5,7 +5,7 @@
 	<div id="wrapper">
 			<div class="container">
 			@if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
-				<h2 class="text-center"><strong>Employee Management</strong></h2>
+				<h2 class="text-center"><strong>Employee</strong></h2>
 				<hr>
 			<div class="row">
 				@auth('web')
@@ -65,7 +65,7 @@
 			  </tbody>
 			</table>
 			@else
-				<h2 class="text-center"><strong>Employee Management</strong></h2>
+				<h2 class="text-center"><strong>Employee</strong></h2>
 				<hr>
 			<!-- <div class="dataTables_length" id="table-buku_length"><label>Show <select name="table-buku_length" aria-controls="table-buku" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div> -->
 			<table class="table dataTable" style="margin-top: 25px;" id="employee-table">	
@@ -91,7 +91,8 @@
 			      <td>{{ $user->division_status }}</td>
 			      <td>{{ $user->grade_status }}</td>
 			    </tr>
-			   @endforeach		
+			   @endforeach	
+			   	
 			  </tbody>
 			</table>
 			@endif
@@ -130,9 +131,5 @@
     // });
   </script>
   <!-- end datatables -->
-@else
-<div class="card-body">
-	You are guest
-</div>
 @endif
 @endsection

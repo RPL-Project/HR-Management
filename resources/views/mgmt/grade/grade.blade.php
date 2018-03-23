@@ -57,7 +57,7 @@
 			  </tbody>
 			</table>
 		@else
-			<h2 class="text-center"><strong>Grade Management</strong></h2>
+			<h2 class="text-center"><strong>Grade</strong></h2>
 				<hr>
 			<div class="row">
 			</div>	
@@ -99,9 +99,5 @@
 	    $('#grd-table').DataTable();
 	} );
 	</script>
-@else
-<div class="card-body">
-	You are guest
-</div>
 @endif
 @endsection

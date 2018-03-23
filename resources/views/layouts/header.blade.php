@@ -13,11 +13,13 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Management
           </a>
+          @auth('web')
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">                  
             <a class="dropdown-item" href="{{ route('employee.index') }}">Employee Management</a>
             <a class="dropdown-item" href="{{ route('division.index') }}">Division Management</a>
             <a class="dropdown-item" href="{{ route('grade.index') }}">Grade Management</a>
           </div>
+          @endauth
         </li>   
       </ul>
       <div class="nav-item dropdown">

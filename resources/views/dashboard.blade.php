@@ -116,11 +116,6 @@
 					Lorem Ipsum Dolor Sit Amet
 					</div>
 					@endif
-
-					@else
-					<div class="card-body">
-						You are guest
-					</div>
 					@endif			
 				</div>		
 			</div>

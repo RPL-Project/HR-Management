@@ -57,7 +57,7 @@
 			  </tbody>
 			</table>
 		@else
-			<h2 class="text-center"><strong>Division Management</strong></h2>
+			<h2 class="text-center"><strong>Division</strong></h2>
 				<hr>
 			<div class="row">
 			</div>	
@@ -99,9 +99,5 @@
 	    $('#div-table').DataTable();
 	} );
 	</script>
-@else
-<div class="card-body">
-	You are guest
-</div>
 @endif
 @endsection
