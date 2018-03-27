@@ -22,7 +22,7 @@ class DivisionController extends Controller
     public function index()
     {
         $division = Division::all();
-         $user = User::find(Auth::user()->id)
+        $user = User::find(Auth::user()->id)
             ->join('divisions', 'users.division_id', '=', 'divisions.id')
             ->where('users.id','=',Auth::user()->id)
             ->get();
@@ -56,12 +56,14 @@ class DivisionController extends Controller
         $this->validate($request, [
             'division_status' => 'required|regex:/^[\pL\s]+$/u',
             'division_description' => 'required|regex:/^[\pL\s]+$/',
+            'division_salary' => 'required|regex:/^\d*(\.\d{1,2})?$/',
             'status' => 'required'
             ]);
 
         $division = new Division;
         $division->division_status = $request->division_status;
         $division->division_description = $request->division_description;
+         $division->division_salary = $request->division_salary;
         $division->status = $request->status;
         $division->save();
 
@@ -103,12 +105,14 @@ class DivisionController extends Controller
         $this->validate($request, [
             'division_status' => 'required|regex:/^[\pL\s]+$/u',
             'division_description' => 'required|regex:/^[\pL\s]+$/u|max:200',
+            'division_salary' => 'required|regex:/^\d*(\.\d{1,2})?$/',
             'status' => 'required'
             ]);
 
         $division = Division::find($id);
         $division->division_status = $request->division_status;
         $division->division_description = $request->division_description;
+         $division->division_salary = $request->division_salary;
         $division->status = $request->status;
         $division->save();
 
@@ -123,6 +127,7 @@ class DivisionController extends Controller
      */
     public function destroy($id)
     {
+        
         $division = Division::find($id);
         $division ->delete();
         return redirect()->back();

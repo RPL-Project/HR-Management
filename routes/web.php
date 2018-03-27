@@ -22,3 +22,5 @@ Route::resource('/division', 'DivisionController');
 Route::resource('/grade', 'GradeController');
 
 Route::resource('/profile', 'ProfileController');
+
+Route::resource('/salary', 'SalaryController');

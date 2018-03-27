@@ -7,13 +7,13 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Salary Slip</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Report</a></li>
+      @auth('web')
+        <li class="nav-item"><a class="nav-link" href="{{ route('salary.index') }}">Salary Slip</a></li>
+        <li class="nav-item"><a class="nav-link" href="mailto:someone@example.com" target="_blank">Report</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Management
           </a>
-          @auth('web')
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">                  
             <a class="dropdown-item" href="{{ route('employee.index') }}">Employee Management</a>
             <a class="dropdown-item" href="{{ route('division.index') }}">Division Management</a>

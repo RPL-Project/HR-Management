@@ -20,6 +20,7 @@
 			      <th scope="col">No.</th>
 			      <th scope="col">Division Name</th>
 			      <th scope="col">Description</th>
+			      <th scope="col">Salary</th>
 			      <th scope="col">Status</th>
 			      @auth('web')
 			      	<th scope="col">Action</th>
@@ -31,7 +32,8 @@
 			    <tr class="table-light" align="center">			      
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $division->division_status }}</td>
-			      <td style="max-width: 300px;" align="left">{{ $division->division_description }}</td>
+			      <td style="max-width: 300px;">{{ $division->division_description }}</td>
+			      <td>{{ $division->division_salary }}</td>
 			      <td>{{ $division->status }}</td>
 			      @auth('web')
 				      <td>
@@ -67,6 +69,7 @@
 			      <th scope="col">No.</th>
 			      <th scope="col">Division Name</th>
 			      <th scope="col">Description</th>
+			      <th scope="col">Salary</th>
 			      <th scope="col">Status</th>
 			    </tr>
 			  </thead>
@@ -76,6 +79,7 @@
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $division->division_status }}</td>
 			      <td style="max-width:300px;">{{ $division->division_description }}</td>
+			      <td>{{ $division->division_salary }}</td>
 			      <td>{{ $division->status }}</td>
 			    </tr>
 			   @endforeach			    
@@ -86,7 +90,7 @@
 	</div>
 	<script src="{{url('js/jquery.min.js')}}" ></script>
     <!-- ini untuk bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" ></script>
+    <script src="{{url('js/tether.min.js')}}"></script>
     <script src="{{url('js/bootstrap.min.js')}}"></script>
     <!-- end bootstrap -->
 

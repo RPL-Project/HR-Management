@@ -3,20 +3,7 @@
 @section('content')
 	<div id="wrapper">
 		<div class="row">
-			<div class="col">			
-				<div class="list-group">				  
-				  <a href="#" class="list-group-item list-group-item-action active navbar-dark bg-dark">Dapibus ac facilisis in</a>
-				  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-				  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-				  <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
-				</div>
-				<br>
-				<div class="alert alert-info">
-					<h3>Lorem ipsum dolor.</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolor enim totam, fugiat minima amet ad tempore? Laboriosam, nisi, voluptatum.</p>
-				</div>
-			</div>
-			<div class="col-10">		
+			<div class="col-12">		
 				<div class="card">
 					@if (Auth::check())
 					@if (Auth::user()->role_id == 1 || Auth::user()->role_id == 2)						
@@ -123,7 +110,7 @@
 	</div>	
 	<script src="{{url('js/jquery.min.js')}}" ></script>
     <!-- ini untuk bootstrap -->
-    <script src="{{url('js/datatable.js')}}" ></script>
+    <script src="{{url('js/tether.min.js')}}" ></script>
     <script src="{{url('js/bootstrap.min.js')}}"></script>
     <!-- end bootstrap -->
 

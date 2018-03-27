@@ -66,6 +66,7 @@
                                 @endif
                             </div>
                         </div>
+                        @if(Auth::user()->role_id == 1)
                         <div class="form-group row">
                             <label for="division" class="col-md-4 col-form-label text-md-right">Division</label>
                             <div class="col-md-6">
@@ -105,7 +106,7 @@
                                 @endif
                             </div>
                         </div>
-
+                        @endif
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
 									<a onclick="history.go(-1)" class="btn btn-primary" style="color:#fff;">Back</a>
@@ -118,5 +119,5 @@
 				</div>
 			</div>	
 		</div>
-	</div>	
+	</div>
 @endsection

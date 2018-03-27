@@ -12,13 +12,13 @@
 				<div class="card-body">
 					{!! Form::open(['route' => 'grade.store', 'method' => 'POST']) !!}
 						<div class="form-group row">
-							<label for="garde_status" class="col-md-4 col-form-label text-md-right">Grade</label>
+							<label for="grade_status" class="col-md-4 col-form-label text-md-right">Grade</label>
                             <div class="col-md-6">
-                                <input id="garde_status" type="text" class="form-control{{ $errors->has('garde_status') ? ' is-invalid' : '' }}" name="garde_status" value="{{old('$grade->garde_status')}}" required autofocus>
+                                <input id="grade_status" type="text" class="form-control{{ $errors->has('grade_status') ? ' is-invalid' : '' }}" name="grade_status" value="{{old('$grade->grade_status')}}" required autofocus>
 
-                                @if ($errors->has('garde_status'))
+                                @if ($errors->has('grade_status'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('garde_status') }}</strong>
+                                        <strong>{{ $errors->first('grade_status') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -36,6 +36,18 @@
                                 @endif
                             </div>
 						</div>
+                        <div class="form-group row">
+                            <label for="grade_salary" class="col-md-4 col-form-label text-md-right">Salary</label>
+                            <div class="col-md-6">
+                                <input id="grade_salary" type="text" class="form-control{{ $errors->has('grade_salary') ? ' is-invalid' : '' }}" name="grade_salary" value="{{old('$grade->grade_salary')}}" required>
+
+                                @if ($errors->has('grade_salary'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('grade_salary') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 						@if(Auth::user()->role_id == 1)
 						<div>
                             <input id="status" type="hidden" class="form-control{{ $errors->has('division_status') ? ' is-invalid' : '' }}" name="status" value="accept">

@@ -36,6 +36,18 @@
                                 @endif
                             </div>
 						</div>
+                        <div class="form-group row">
+                            <label for="division_salary" class="col-md-4 col-form-label text-md-right">Salary</label>
+                            <div class="col-md-6">
+                                <input id="division_salary" type="text" class="form-control{{ $errors->has('division_salary') ? ' is-invalid' : '' }}" name="division_salary" value="{{old('$division->division_salary')}}" required autofocus>
+
+                                @if ($errors->has('division_salary'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('division_salary') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 						@if(Auth::user()->role_id == 1)
 						<div>
                             <input id="status" type="hidden" class="form-control{{ $errors->has('division_status') ? ' is-invalid' : '' }}" name="status" value="accept">

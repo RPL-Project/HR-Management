@@ -69,16 +69,16 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
+        $user = User::find(Auth::user()->id);
         $this->validate($request, [
             'employee_id' => 'required|max:8|min:8|regex:/^[0-9]+$/',
             'name' => 'required|regex:/^[\pL\s]+$/u',
             'gender' => 'required|string',
-            'email' => 'required|string|email',
+            'email' => 'required|string|email|unique:users,email,'.$user->id,
             'division_id' => 'required',
             'grade_id' => 'required'
             ]);
 
-        $user = User::find(Auth::user()->id);
         $user->employee_id = $request->employee_id;
         $user->name = $request->name;
         $user->gender = $request->gender;

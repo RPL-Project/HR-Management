@@ -56,12 +56,14 @@ class GradeController extends Controller
         $this->validate($request, [
             'grade_status' => 'required|regex:/^[\pL\s]+$/u',
             'grade_description' => 'required|regex:/^[\pL\s]+$/',
+            'grade_salary' => 'required|regex:/^\d*(\.\d{1,2})?$/',
             'status' => 'required'
             ]);
 
         $grade = new Grade;
         $grade->grade_status = $request->grade_status;
         $grade->grade_description = $request->grade_description;
+        $grade->grade_salary = $request->grade_salary;
         $grade->status = $request->status;
         $grade->save();
 
@@ -103,12 +105,14 @@ class GradeController extends Controller
         $this->validate($request, [
             'grade_status' => 'required|regex:/^[\pL\s]+$/u',
             'grade_description' => 'required|regex:/^[\pL\s]+$/u|max:200',
+            'grade_salary' => 'required|regex:/^\d*(\.\d{1,2})?$/',
             'status' => 'required'
             ]);
 
         $grade = Grade::find($id);
         $grade->grade_status = $request->grade_status;
         $grade->grade_description = $request->grade_description;
+        $grade->grade_salary = $request->grade_salary;
         $grade->status = $request->status;
         $grade->save();
 

@@ -20,6 +20,7 @@
 			      <th scope="col">No.</th>
 			      <th scope="col">Grade Name</th>
 			      <th scope="col">Description</th>
+			      <th scope="col">Salary</th>
 			      <th scope="col">Status</th>
 			      @auth('web')
 			      	<th scope="col">Action</th>
@@ -32,6 +33,7 @@
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $grade->grade_status }}</td>
 			      <td style="max-width:300px;">{{ $grade->grade_description }}</td>
+			      <td>{{ $grade->grade_salary }}</td>
 			      <td>{{ $grade->status }}</td>
 			      @auth('web')
 				      <td>
@@ -67,6 +69,7 @@
 			      <th scope="col">No.</th>
 			      <th scope="col">Grade Name</th>
 			      <th scope="col">Description</th>
+			      <th scope="col">Salary</th>
 			      <th scope="col">Status</th>
 			    </tr>
 			  </thead>
@@ -76,6 +79,7 @@
 			      <th scope="row">{{ $index+1 }}</th>
 			      <td>{{ $grade->grade_status }}</td>
 			      <td style="max-width:300px;">{{ $grade->grade_description }}</td>
+			      <td>{{ $grade->Grade_salary }}</td>
 			      <td>{{ $grade->status }}</td>
 			    </tr>
 			   @endforeach			    

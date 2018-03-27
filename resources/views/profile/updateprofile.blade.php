@@ -67,6 +67,7 @@
                                 @endif
                             </div>
                         </div>
+                     
                         <div class="form-group row">
                             <label for="division" class="col-md-4 col-form-label text-md-right">Division</label>
                             <div class="col-md-6">
@@ -99,7 +100,7 @@
                                 @endif
                             </div>
                         </div>
-
+                       
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
 									<a onclick="history.go(-1)" class="btn btn-primary" style="color:#fff;">Back</a>
@@ -109,34 +110,6 @@
                             </div>
                         </div>
                     </form>
-					<!--{!! Form::open(['route' => ['profile.update', $user->id], 'method' => 'PUT']) !!}
-						<div class="form-group">
-							{{ Form::label('employee_id', 'Employe id') }}
-							{{ Form::text('employee_id', $user->employee_id, ['class' => 'form-control', 'placeholder' => 'Employe id'])}}
-						</div>
-						<div class="form-group">
-							{{ Form::label('name', 'Name') }}
-							{{ Form::text('name', $user->name, ['class' => 'form-control', 'placeholder' => 'Name'])}}
-						</div>
-						<div class="form-group">
-							{{ Form::label('gender', 'Employee Gender') }}
-							{{ Form::select('gender', ['Man' => 'Man', 'Woman' => 'Woman'], null, ['placeholder' => 'Select Gender', 'class' => 'custom-select'])}}
-						</div>
-						<div class="form-group">
-							{{ Form::label('email', 'Email') }}
-							{{ Form::text('email', $user->email, ['class' => 'form-control', 'placeholder' => 'Email'])}}
-						</div>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-2">
-									<a onclick="history.go(-1)" class="btn btn-primary">Back</a>
-								</div>
-								<div class="col-4 offset-6 text-right">
-									{{ Form::submit('Save Changes', ['class' => 'btn btn-success']) }}
-								</div>
-							</div>					
-						</div>
-					{!! Form::close() !!}-->
 				</div>
 			</div>	
 		</div>
