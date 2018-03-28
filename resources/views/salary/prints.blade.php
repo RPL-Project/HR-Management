@@ -4,7 +4,7 @@
 	<div class="container">
 	<br>
 	@if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
-		<a href="#" onclick="window.print()" style="text-decoration: none; color: #000;"><h2 class="text-center"><strong>Salary slip</strong></h2>
+		<a href="#" onclick="window.print()" style="text-decoration: none; color: black;"><h2 class="text-center"><strong>Salary slip</strong></h2>
 		<hr>
 		<br>
 		<table class="table" style="margin-top: 25px;">
