@@ -1,13 +1,13 @@
 @extends('layouts.app')
-
 @section('content')
 <div id="wrapper">
 	<div class="container">
+	<br>
 	@if(Auth::user()->role_id == 1 || Auth::user()->role_id == 2)
-		<h2 class="text-center"><strong>Salary slip</strong></h2>
+		<a href="#" onclick="window.print()" style="text-decoration: none; color: #000;"><h2 class="text-center"><strong>Salary slip</strong></h2>
 		<hr>
 		<br>
-		<table class="table dataTable" style="margin-top: 25px;" id="salary-table">
+		<table class="table" style="margin-top: 25px;">
 			<thead class="thead-dark">
 				<tr>
 					<th>No</th>
@@ -33,12 +33,10 @@
 				@endforeach
 			</tbody>
 		</table>
-		<a href="#" class="btn btn-success" style="color:#fff;">Bonus</a>
-		<a href="{{ route('print.index') }}" class="btn btn-warning" style="color:#fff;">Print</a>
 	@else
-		<h2 class="text-center"><strong>Salary slip</strong></h2>
+		<a href="#" onclick="window.print()" style="text-decoration: none; color: #000"><h2 class="text-center"><strong>Salary slip</strong></h2></a>
 		<br>
-		<table class="table dataTable" style="margin-top: 25px;" id="salary-table">
+		<table class="table">
 			<thead class="thead-dark">
 				<tr>
 					<th>No</th>
@@ -64,25 +62,10 @@
 				@endforeach
 			</tbody>
 		</table>
-		<a href="#" class="btn btn-success" style="color:#fff;">Bonus</a>
-		<a href="{{ route('print.index') }}" class="btn btn-warning" style="color:#fff;">Print</a>
 	@endif
 	</div>
 </div>
-	<script src="{{url('js/jquery.min.js')}}" ></script>
-    <!-- ini untuk bootstrap -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" ></script>
-    <script src="{{url('js/bootstrap.min.js')}}"></script>
-    <!-- end bootstrap -->
-
-	<!-- ini untuk datatables -->
-    <script src="{{url('js/jquery.dataTables.min.js')}}"></script>
-
-    <!-- Pastikan posisi dibawah import datatablesnya -->
-    <script type="text/javascript">
-    $(document).ready( function () {
-	    $('#salary-table').DataTable();
-	} );
-  </script>
-
+<script>
+    alert("Click Salary slip to print");
+</script>
 @endsection

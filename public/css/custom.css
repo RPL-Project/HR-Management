@@ -15,9 +15,7 @@
 body {	
 	-webkit-background-size: cover;
 	background-size: cover;
-}
-body{
-    background-image: url("gradient_bg.png");
+	background-image: url("gradient_bg.png");
     background-repeat: repeat-x;
 }
 #wrapper {
@@ -28,6 +26,7 @@ footer {
 	padding-top: 20px;
 	background-color: #34495e;
 	color: #fff;
+	bottom: 0;
 }
 .EM{
 	width: 300px;

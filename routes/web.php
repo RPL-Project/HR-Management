@@ -24,3 +24,6 @@ Route::resource('/grade', 'GradeController');
 Route::resource('/profile', 'ProfileController');
 
 Route::resource('/salary', 'SalaryController');
+
+
+Route::resource('/print', 'PrintController');

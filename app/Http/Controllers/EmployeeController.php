@@ -62,11 +62,13 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+        $user = User::find($id);
+        
         $this->validate($request, [
-            'employee_id' => 'required|string|max:8|min:8|regex:/^[0-9]+$/|unique:users',
-            'name' => 'required|string|regex:/^[\pL\s]+$/u',
+            'employee_id' => 'required|max:11|min:11|regex:/^[0-9]+$/|unique:users,employee_id,'.$user->id,
+            'name' => 'required|regex:/^[\pL\s]+$/u',
             'gender' => 'required|string',
-            'email' => 'required|string|email|unique:users',
+            'email' => 'required|string|email|unique:users,email,'.$user->id,
             'division_id' => 'required',
             'grade_id' => 'required'
             ]);
@@ -123,16 +125,18 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = User::find($id);
+
         $this->validate($request, [
-            'employee_id' => 'required|max:8|min:8|regex:/^[0-9]+$/',
+            'employee_id' => 'required|max:11|min:11|regex:/^[0-9]+$/|unique:users,employee_id,'.$user->id,
             'name' => 'required|regex:/^[\pL\s]+$/u',
             'gender' => 'required|string',
-            'email' => 'required|string|email',
+            'email' => 'required|string|email|unique:users,email,'.$user->id,
             'division_id' => 'required',
             'grade_id' => 'required'
             ]);
 
-        $user = User::find($id);
+        
         $user->employee_id = $request->employee_id;
         $user->name = $request->name;
         $user->gender = $request->gender;

@@ -71,7 +71,7 @@ class ProfileController extends Controller
     {
         $user = User::find(Auth::user()->id);
         $this->validate($request, [
-            'employee_id' => 'required|max:8|min:8|regex:/^[0-9]+$/',
+            'employee_id' => 'required|max:11|min:11|regex:/^[0-9]+$/|unique:users,employee_id,'.$user->id,
             'name' => 'required|regex:/^[\pL\s]+$/u',
             'gender' => 'required|string',
             'email' => 'required|string|email|unique:users,email,'.$user->id,

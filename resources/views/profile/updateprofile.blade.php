@@ -73,7 +73,11 @@
                             <div class="col-md-6">
                                 <select name="division_id" class="form-control{{ $errors->has('division_id') ? ' is-invalid' : '' }}">
                                 @foreach ($divisions as $division)
-                                    <option value="{{ $division->id }}" >{{ $division->division_status}} </option>
+                                    <option value="{{ $division->id }}" 
+                                        @if($division->id === $user->division_id)
+                                            selected
+                                        @endif
+                                        >{{ $division->division_status}} </option>
                                 @endforeach
                                 </select>
                                 @if ($errors->has('division_id'))
@@ -89,7 +93,10 @@
                             <div class="col-md-6">
                                 <select name="grade_id" class="form-control{{ $errors->has('grade_id') ? ' is-invalid' : '' }}">
                                 @foreach ($grades as $grade)
-                                    <option value="{{ $grade->id }}">
+                                    <option value="{{ $grade->id }}"
+                                    @if($grade->id === $user->grade_id)
+                                            selected
+                                    @endif>
                                     {{ $grade->grade_status}} </option>
                                 @endforeach
                                 </select>

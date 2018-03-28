@@ -8,14 +8,7 @@
 				<br>
 
 			<div class="row">
-					<div class="col-3" style="margin-bottom: 20px;">
-						<div class="card" style="width: 12.7rem;height: 12.7rem;">
-							<div class="card-body">
-								<img src="img/avatar.png" class="profile" style="width: 10rem; height: 10rem; " />
-							</div>
-						</div>
-					</div>
-					<div class="col-4" style="margin-bottom: 20px;">
+					<div class="col-6 offset-3">
 						<div class="card" style="width: 25rem;">
 							<div class="card-body">
 								<table>

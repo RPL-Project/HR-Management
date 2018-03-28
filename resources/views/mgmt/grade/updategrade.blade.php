@@ -51,8 +51,8 @@
                                 </label>
                                 <div class="col-md-6">
                                     <select id="status" type="text" class="form-control" name="status">
-                                        <option>Accept</option>
-                                        <option>Reject</option>
+                                        <option>accept</option>
+                                        <option>reject</option>
                                     </select>
                                 </div>
                             </div>
