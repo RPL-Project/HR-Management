@@ -98,11 +98,24 @@
 			  </tbody>
 			</table>	
 					</div>
-					@else
-					<div class="card-body">
-					Lorem Ipsum Dolor Sit Amet
-					</div>
 					@endif
+					@if (Auth::user()->role_id == 3)
+						<div class="card-body">	
+							<center>
+								<h1 class="bold">PT. Bridge Technology Service</h1>	
+								<hr width="500">
+								<img src="img/logo2.png" width="400" height="400">
+							</center>
+						</div>
+					@endif	
+					@else
+						<div class="card-body">	
+							<center>
+								<h1 class="bold">PT. Bridge Technology Service</h1>	
+								<hr width="500">
+								<img src="img/logo2.png" width="400" height="400">
+							</center>
+						</div>
 					@endif			
 				</div>		
 			</div>
