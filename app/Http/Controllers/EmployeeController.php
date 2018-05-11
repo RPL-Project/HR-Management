@@ -62,17 +62,17 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::find($id);
+        
         
         $this->validate($request, [
-            'employee_id' => 'required|max:11|min:11|regex:/^[0-9]+$/|unique:users,employee_id,'.$user->id,
+            'employee_id' => 'required|max:11|min:11|regex:/^[0-9]+$/|unique:users',
             'name' => 'required|regex:/^[\pL\s]+$/u',
             'gender' => 'required|string',
-            'email' => 'required|string|email|unique:users,email,'.$user->id,
+            'email' => 'required|string|email|unique:users',
             'division_id' => 'required',
             'grade_id' => 'required'
             ]);
-
+        $user = User::all();
         $user = new User;
         $user->employee_id = $request->employee_id;
         $user->name = $request->name;
